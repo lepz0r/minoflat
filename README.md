@@ -38,17 +38,6 @@ scrot (for screenshots)
 Copy .minoflat directory and .Xresources to your home directory (~) and some configurations in .config to ~/.config
 
 # Preview
-<img src="screenshots/2019-10-20-11.png">
-<img src="screenshots/2019-10-20-11_000.png">
-
-**Optional**
-
-scrot (for screenshots)
-
-# Installation
-Copy .minoflat directory and .Xresources to your home directory (~) and some configurations in .config to ~/.config
-
-# Preview
 <img src="screenshots/2019-10-20-11.png">\
 Programs: qutebrowser, st, neofetch & cmus
 
