@@ -1,0 +1,90 @@
+Xft.dpi:96
+! Relaxed Color Scheme
+
+! Foreground Background & Cursor Color
+#define FG  #d9d9d9
+#define BG  #353a44
+#define CURCOL #d9d9d9
+
+! Black
+#define C0      #151515
+#define C8      #636363
+
+! Red
+#define C1      #bc5653
+#define C9      #bc5653
+
+! Green
+#define C2      #909d63
+#define C10     #a0ac77
+
+! Yellow
+#define C3      #ebc17a
+#define C11     #ebc17a
+
+! Blue
+#define C4      #6a8799
+#define C12     #7eaac7
+
+! Magenta
+#define C5      #b06698
+#define C13     #b06698
+
+! Cyan
+#define C6      #c9dfff
+#define C14     #acbbd0
+
+! White
+#define C7      #d9d9d9
+#define C15     #f7f7f7
+
+! Bold
+#define CBD     #d9d9d9
+
+#define xresources_sansserif Roboto
+#define xresources_monospace Source Code Pro
+
+#define ACC	C13
+
+URxvt*font: xft:xresources_monospace:bold:size=9
+URxvt.depth: 32
+URxvt*scrollBar: false
+URxvt.letterSpace: 0
+URxvt.cursorBlink: true
+
+! Polybar
+*.barfont: xresources_sansserif:pixelsize=10;2
+
+*.color1: C1
+*.color2: C2
+*.color3: C3
+*.color4: C4
+*.color5: C5
+*.color6: C5
+*.color7: C7
+*.color8: C8
+*.color9: C9
+*.color10: C10
+*.color11: C11
+*.color12: C12
+*.color13: C13
+*.color14: C14
+*.color15: C15
+*.colorBD: CBD
+*.foreground: FG
+*.background: BG
+*.accent: ACC
+*.sansserif: xresources_sansserif
+
+dwm.normbordercolor: BG
+dwm.normbgcolor: BG
+dwm.normfgcolor: FG
+dwm.selbordercolor: ACC
+dwm.selbgcolor: ACC
+dwm.selfgcolor: FG
+
+rofi.color-window: BG, BG, BG
+rofi.color-normal: BG, FG, BG, ACC, BG
+rofi.color-active: BG, FG, BG, ACC, BG
+rofi.color-urgent: BG, FG, BG, ACC, BG
+rofi.font: SansSerif 10
