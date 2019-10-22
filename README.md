@@ -1,12 +1,18 @@
 # Requirements
+Supported WMs
+|WM|Ubuntu|Arch Linux|Explanation|
+|-|-|-|-|
+|i3-gaps|-*|i3-gaps|Window manager (WM)|
+|bspwm|bspwm|bspwm|Window manager (WM)|
+\* Must be build from source
+
 |Program|Ubuntu|Arch Linux|Explanation|
 |-|-|-|-|
-|Compton (for shadow & fading)|compton|compton|Compositor for shadow & fading|
+|Compton|compton|compton|Compositor for shadow & fading|
 |Dunst|dunst|dunst|Notification daemon (for displaying notifications)
 |hsetroot|hsetroot|hsetroot|Set workspace background color|
-|i3-gaps|-*|i3-gaps|Window manager (WM)|
 |Polybar|-*|polybar**|Bar|
-|Rofi (launcher, you can set your launcher in .config/i3/config)|rofi|rofi|Launcher|
+|Rofi (launcher, you can set your launcher in .config/i3/config for i3-gaps)|rofi|rofi|Launcher|
 |xrdb|x11-xserver-utils|xorg-xrdb|For loading .Xresources|
 
 \* Must be build from source\
@@ -28,7 +34,7 @@ Default Fonts
 |Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk
 |Source Code Pro|-*|adobe-source-code-pro-fonts
 
-\* Must be downloaded and installed from the package
+\* Must be downloaded and copied to font directory
 
 **Optional**
 
