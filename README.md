@@ -1,5 +1,6 @@
 # Requirements
 Supported WMs
+
 |WM|Ubuntu|Arch Linux|Explanation|
 |-|-|-|-|
 |i3-gaps|-*|i3-gaps|Window manager (WM)|
