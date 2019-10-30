@@ -42,7 +42,7 @@ Default Fonts
 scrot (for screenshots)
 
 # Installation
-Copy .minoflat directory, .Xresources to your home directory (~) and some configurations in .config to ~/.config
+Copy .minoflat directory, .Xresources and .Xresources.d directory to your home directory (~) and some configurations in .config to ~/.config
 
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
