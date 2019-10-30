@@ -1,14 +1,5 @@
 #! /bin/sh
 
-# ----- Check if sxhkdrc exist, if don't copy default one ------
-
-if [ ! -f "~/.config/sxhkd/sxhkdrc" ]; then
-    if [ ! -f "~/.config/sxhkd/" ]; then
-	mkdir ~/.config/sxhkd
-    fi
-    cp -p /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
-fi
-
 # ----- Start initialization scripts -----
 ~/.minoflat/scripts/tiling-common &
 sxhkd &
