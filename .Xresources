@@ -46,45 +46,7 @@ Xft.dpi:96
 
 #define ACC	C13
 
-URxvt*font: xft:xresources_monospace:bold:size=9
-URxvt.depth: 32
-URxvt*scrollBar: false
-URxvt.letterSpace: 0
-URxvt.cursorBlink: true
-
-! Polybar
-*.barfont: xresources_sansserif:pixelsize=10;2
-
-*.color1: C1
-*.color2: C2
-*.color3: C3
-*.color4: C4
-*.color5: C5
-*.color6: C5
-*.color7: C7
-*.color8: C8
-*.color9: C9
-*.color10: C10
-*.color11: C11
-*.color12: C12
-*.color13: C13
-*.color14: C14
-*.color15: C15
-*.colorBD: CBD
-*.foreground: FG
-*.background: BG
-*.accent: ACC
-*.sansserif: xresources_sansserif
-
-dwm.normbordercolor: BG
-dwm.normbgcolor: BG
-dwm.normfgcolor: FG
-dwm.selbordercolor: ACC
-dwm.selbgcolor: ACC
-dwm.selfgcolor: FG
-
-rofi.color-window: BG, BG, BG
-rofi.color-normal: BG, FG, BG, ACC, BG
-rofi.color-active: BG, FG, BG, ACC, BG
-rofi.color-urgent: BG, FG, BG, ACC, BG
-rofi.font: SansSerif 10
+#include ".Xresources.d/urxvt"
+#include ".Xresources.d/rofi"
+#include ".Xresources.d/polybar"
+#include ".Xresources.d/common"

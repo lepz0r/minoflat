@@ -1,0 +1,5 @@
+URxvt*font: xft:xresources_monospace:bold:size=9
+URxvt.depth: 32
+URxvt*scrollBar: false
+URxvt.letterSpace: 0
+URxvt.cursorBlink: true
