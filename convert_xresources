@@ -1,0 +1,29 @@
+#!/bin/sh
+if [ "$1" == -h ] 
+then
+			echo "Usage: convert_xresources [OPTION]"
+			echo "	-A	Define accent color"
+			echo "	-f	Define .Xresources file to convert"
+			exit
+fi
+echo "Generated with Minoflat's convert_xresources" > .Xresources
+echo "" >> .Xresources
+while [ -n "$1" ]; do
+	case "$1" in
+		-f) 
+			sed "s/\*\.color/#define C/ig" $2 | sed "s/://ig" |sed "s/*.fore/#define F/ig"|sed "s/*.back/#define B/ig"|sed "s/ground/G/ig"|sed "s/*.cursorColor/#define CURCOL/ig" >> .Xresources
+			shift
+			;;
+		-A)
+			echo "#define ACC C$2" >> .Xresources
+			shift
+			;;
+		-h)
+
+	esac
+	shift
+done
+echo "" >> .Xresources
+for f in ~/.Xresources.d/* ; do
+	echo "#include \"$f\"" >> .Xresources
+done

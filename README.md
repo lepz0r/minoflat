@@ -51,5 +51,10 @@ Programs: qutebrowser, st, neofetch & cmus
 <img src="screenshots/2019-10-20-11_000.png">
 Programs: st & neofetch
 
+# Scripts
+
+```~/.minoflat/scripts/tiling-common``` init script for i3 & bspwm and as a workaround for passing .Xresources value to hsetroot\
+```convert_xresources``` To convert .Xresources to Minoflat format
+
 # Credits
 Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes
