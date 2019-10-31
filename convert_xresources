@@ -2,28 +2,72 @@
 if [ "$1" == -h ] 
 then
 			echo "Usage: convert_xresources [OPTION]"
-			echo "	-A	Define accent color"
-			echo "	-f	Define .Xresources file to convert"
+			echo "	-A	Define accent color, default to CURCOL"
+			echo "	-f	Specify .Xresources file to convert"
+			echo "	-Fm	Specify monospace font default to Source Code Pro"
+			echo "	-Fs	Specify Sans Serif font default to Roboto"
 			exit
 fi
-echo "Generated with Minoflat's convert_xresources" > .Xresources
-echo "" >> .Xresources
 while [ -n "$1" ]; do
 	case "$1" in
 		-f) 
-			sed "s/\*\.color/#define C/ig" $2 | sed "s/://ig" |sed "s/*.fore/#define F/ig"|sed "s/*.back/#define B/ig"|sed "s/ground/G/ig"|sed "s/*.cursorColor/#define CURCOL/ig" >> .Xresources
+			file=$2
 			shift
 			;;
 		-A)
-			echo "#define ACC C$2" >> .Xresources
+			accent=$2
 			shift
 			;;
-		-h)
-
+		-Fm)
+			monospace=$2
+			;;
+		-Fs)
+			sans=$2
+			;;
 	esac
 	shift
 done
 echo "" >> .Xresources
-for f in ~/.Xresources.d/* ; do
-	echo "#include \"$f\"" >> .Xresources
-done
+
+if [ -z "$file" ]
+then
+	echo "No file specified"
+	exit
+else
+	echo "! Generated with Minoflat's convert_xresources" > .Xresources
+	echo "" >> .Xresources
+	sed "s/\*\.color/#define C/ig" $file | sed "s/://ig" |sed "s/*.fore/#define F/ig"|sed "s/*.back/#define B/ig"|sed "s/ground/G/ig"|sed "s/*.cursorColor/#define CURCOL/ig" >> .Xresources
+
+	echo "" >> .Xresources
+
+
+	if [ -z "$accent" ]
+	then
+		echo "#define ACC CURCOL" >> .Xresources
+	else
+		echo "#define ACC C$accent" >> .Xresources
+	fi
+
+	echo "" >> .Xresources
+	echo "! Fonts" >> .Xresources
+	if [ -z "$monospace" ]
+	then
+		echo "#define xresources_monospace Source Code Pro" >> .Xresources
+	else
+		echo "#define xresources_monospace $monospace" >> .Xresources
+	fi
+
+
+	if [ -z "$sans" ]
+	then
+		echo "#define xresources_sansserif Roboto" >> .Xresources
+	else
+		echo "#define xresources_monospace $sans" >> .Xresources
+	fi
+
+	echo "" >> .Xresources
+	echo "! Includes" >> .Xresources
+	for f in ~/.Xresources.d/* ; do
+		echo "#include \"$f\"" >> .Xresources
+	done
+fi
