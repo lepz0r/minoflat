@@ -2,9 +2,10 @@
 Supported WMs
 
 |WM|Ubuntu|Arch Linux|Gentoo|
-|-|-|-|-|-|
+|-|-|-|-|
 |i3-gaps|-*|i3-gaps|i3-gaps|
 |bspwm|bspwm|bspwm|bspwm|
+
 \* Must be build from source
 
 |Program|Ubuntu|Arch Linux|Gentoo|Explanation|
@@ -47,7 +48,6 @@ Copy .minoflat directory, .Xresources and .Xresources.d directory to your home d
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
 Programs: qutebrowser, st, neofetch & cmus
-
 <img src="screenshots/2019-10-20-11_000.png">
 Programs: st & neofetch
 
