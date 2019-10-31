@@ -1,20 +1,20 @@
 # Requirements
 Supported WMs
 
-|WM|Ubuntu|Arch Linux|Explanation|
-|-|-|-|-|
-|i3-gaps|-*|i3-gaps|Window manager (WM)|
-|bspwm|bspwm|bspwm|Window manager (WM)|
+|WM|Ubuntu|Arch Linux|Gentoo|
+|-|-|-|-|-|
+|i3-gaps|-*|i3-gaps|i3-gaps|
+|bspwm|bspwm|bspwm|bspwm|
 \* Must be build from source
 
-|Program|Ubuntu|Arch Linux|Explanation|
-|-|-|-|-|
-|Compton|compton|compton|Compositor for shadow & fading|
-|Dunst|dunst|dunst|Notification daemon (for displaying notifications)
-|hsetroot|hsetroot|hsetroot|Set workspace background color|
-|Polybar|-*|polybar**|Bar|
-|Rofi (launcher, you can set your launcher in .config/i3/config for i3-gaps)|rofi|rofi|Launcher|
-|xrdb|x11-xserver-utils|xorg-xrdb|For loading .Xresources|
+|Program|Ubuntu|Arch Linux|Gentoo|Explanation|
+|-|-|-|-|-|
+|Compton|compton|compton|compton|Compositor for shadow & fading|
+|Dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
+|hsetroot|hsetroot|hsetroot|hsetroot|Set workspace background color|
+|Polybar|-*|polybar**|polybar|Bar|
+|Rofi|rofi|rofi|rofi|Launcher|
+|xrdb|x11-xserver-utils|xorg-xrdb|xrdb|For loading .Xresources|
 
 \* Must be build from source\
 \*\* Package available on AUR
@@ -23,17 +23,17 @@ Supported WMs
 
 Icon Font
 
-|Font|Ubuntu|Arch Linux|
-|-|-|-|
-|Font Awesome 5|fonts-font-awesome|ttf-font-awesome
+|Font|Ubuntu|Arch Linux|Gentoo|
+|-|-|-|-|
+|Font Awesome 5|fonts-font-awesome|ttf-font-awesome|fontawesome|
 
 Default Fonts
 
-|Font|Ubuntu|Arch Linux|
-|-|-|-|
-|Roboto|fonts-roboto|ttf-roboto
-|Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk
-|Source Code Pro|-*|adobe-source-code-pro-fonts
+|Font|Ubuntu|Arch Linux|Gentoo|
+|-|-|-|-|
+|Roboto|fonts-roboto|ttf-roboto|roboto|
+|Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk|noto-cjk|
+|Source Code Pro|-*|adobe-source-code-pro-fonts|source-pro|
 
 \* Must be downloaded and copied to font directory
 
