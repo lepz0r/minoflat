@@ -6,7 +6,7 @@ Supported WMs
 |i3-gaps|-*|i3-gaps|i3-gaps|
 |bspwm|bspwm|bspwm|bspwm|
 
-\* Must be build from source
+\* Must be built from source
 
 |Program|Ubuntu|Arch Linux|Gentoo|Explanation|
 |-|-|-|-|-|
@@ -17,7 +17,7 @@ Supported WMs
 |Rofi|rofi|rofi|rofi|Launcher|
 |xrdb|x11-xserver-utils|xorg-xrdb|xrdb|For loading .Xresources|
 
-\* Must be build from source\
+\* Must be built from source\
 \*\* Package available on AUR
 
 **Fonts**
@@ -43,7 +43,7 @@ Default Fonts
 scrot (for screenshots)
 
 # Installation
-Copy .minoflat directory, .Xresources and .Xresources.d directory to your home directory (~) and some configurations in .config to ~/.config
+Copy .minoflat directory, .Xresources and .Xresources.d directory to your home directory (~) and some configurations in .config to ~/.config or you can copy all files in this directory to your home directory
 
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
