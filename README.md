@@ -50,9 +50,8 @@ Copy .minoflat directory, .Xresources and .Xresources.d directory to your home d
 Programs: qutebrowser, st, neofetch & cmus\
 WM: i3-gaps
 <img src="screenshots/2019-11-06-03.png">
-Programs: GIMP\
-WM: BSPWM \
-Picture by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC
+Program: GIMP\
+WM: bspwm
 
 
 # Scripts
@@ -61,4 +60,5 @@ Picture by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC
 ```convert_xresources``` To convert .Xresources to Minoflat's format (see convert_xresources -h for information)
 
 # Credits
-Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes
+Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes\
+Picture edited with GIMP by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC
