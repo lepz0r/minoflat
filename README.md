@@ -47,14 +47,18 @@ Copy .minoflat directory, .Xresources and .Xresources.d directory to your home d
 
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
-Programs: qutebrowser, st, neofetch & cmus
-<img src="screenshots/2019-10-20-11_000.png">
-Programs: st & neofetch
+Programs: qutebrowser, st, neofetch & cmus\
+WM: i3-gaps
+<img src="screenshots/2019-11-06-03.png">
+Programs: GIMP\
+WM: BSPWM \
+Picture by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC
+
 
 # Scripts
 
 ```~/.minoflat/scripts/tiling-common``` init script for i3 & bspwm and as a workaround for passing .Xresources value to hsetroot\
-```convert_xresources``` To convert .Xresources to Minoflat format
+```convert_xresources``` To convert .Xresources to Minoflat's format (see convert_xresources -h for information)
 
 # Credits
 Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes
