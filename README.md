@@ -60,5 +60,5 @@ WM: bspwm
 ```convert_xresources``` To convert .Xresources to Minoflat's format (see convert_xresources -h for information)
 
 # Credits
-Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes\
+Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes \
 Picture edited with GIMP by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC
