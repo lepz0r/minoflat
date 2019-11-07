@@ -1,21 +1,21 @@
 # Requirements
 Supported WMs
 
-|WM|Ubuntu|Arch Linux|Gentoo|
-|-|-|-|-|
-|i3-gaps|-*|i3-gaps|i3-gaps|
-|bspwm|bspwm|bspwm|bspwm|
+|WM|Ubuntu|Arch Linux|Gentoo|Void|
+|-|-|-|-|-|
+|i3-gaps|-*|i3-gaps|i3-gaps|i3-gaps|
+|bspwm|bspwm|bspwm|bspwm|bspwm|
 
 \* Must be built from source
 
-|Program|Ubuntu|Arch Linux|Gentoo|Explanation|
-|-|-|-|-|-|
-|Compton|compton|compton|compton|Compositor for shadow & fading|
-|Dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
-|hsetroot|hsetroot|hsetroot|hsetroot|Set workspace background color|
-|Polybar|-*|polybar**|polybar|Bar|
-|Rofi|rofi|rofi|rofi|Launcher|
-|xrdb|x11-xserver-utils|xorg-xrdb|xrdb|For loading .Xresources|
+|Program|Ubuntu|Arch Linux|Gentoo|Void|Explanation|
+|-|-|-|-|-|-|
+|Compton|compton|compton|compton|compton|Compositor for shadow & fading|
+|Dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
+|hsetroot|hsetroot|hsetroot|hsetroot|polybar|Set workspace background color|
+|Polybar|-*|polybar**|polybar|polybar|Bar|
+|Rofi|rofi|rofi|rofi|rofi|Launcher|
+|xrdb|x11-xserver-utils|xorg-xrdb|xrdb|xrdb|For loading .Xresources|
 
 \* Must be built from source\
 \*\* Package available on AUR
@@ -24,17 +24,17 @@ Supported WMs
 
 Icon Font
 
-|Font|Ubuntu|Arch Linux|Gentoo|
-|-|-|-|-|
-|Font Awesome 5|fonts-font-awesome|ttf-font-awesome|fontawesome|
+|Font|Ubuntu|Arch Linux|Gentoo|Void|
+|-|-|-|-|-|
+|Font Awesome 5|fonts-font-awesome|ttf-font-awesome|fontawesome|font-awesome5|
 
 Default Fonts
 
-|Font|Ubuntu|Arch Linux|Gentoo|
-|-|-|-|-|
-|Roboto|fonts-roboto|ttf-roboto|roboto|
-|Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk|noto-cjk|
-|Source Code Pro|-*|adobe-source-code-pro-fonts|source-pro|
+|Font|Ubuntu|Arch Linux|Gentoo|Void|
+|-|-|-|-|-|
+|Roboto|fonts-roboto|ttf-roboto|roboto|fonts-roboto-ttf|
+|Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk|noto-cjk|noto-fonts-cjk|
+|Source Code Pro|-*|adobe-source-code-pro-fonts|source-pro|font-adobe-source-code-pro|
 
 \* Must be downloaded and copied to font directory
 
