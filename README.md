@@ -8,6 +8,8 @@ Supported WMs
 
 \* Must be built from source
 
+**Programs**
+
 |Program|Ubuntu|Arch Linux|Gentoo|Void|Explanation|
 |-|-|-|-|-|-|
 |Compton|compton|compton|compton|compton|Compositor for shadow & fading|
@@ -16,6 +18,9 @@ Supported WMs
 |Polybar|-*|polybar**|polybar|polybar|Bar|
 |Rofi|rofi|rofi|rofi|rofi|Launcher|
 |xrdb|x11-xserver-utils|xorg-xrdb|xrdb|xrdb|For loading .Xresources|
+|xautolock|xautolock|xautolock|xautolock|xautolock|For auto locking|
+|scrot|scrot|scrot|scrot|scrot|For taking screenshot for the lockscreen|
+|ImageMagick|imagemagick|imagemagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen|
 
 \* Must be built from source\
 \*\* Package available on AUR
@@ -38,10 +43,6 @@ Default Fonts
 
 \* Must be downloaded and copied to font directory
 
-**Optional**
-
-scrot (for screenshots)
-
 # Installation
 Copy .minoflat directory, .Xresources and .Xresources.d directory to your home directory (~) and some configurations in .config to ~/.config or you can copy all files in this directory to your home directory
 
@@ -52,6 +53,8 @@ WM: i3-gaps
 <img src="screenshots/2019-11-06-03.png">
 Program: GIMP\
 WM: bspwm
+<img src="screenshots/lock.png">
+Lockscreen
 
 
 # Scripts

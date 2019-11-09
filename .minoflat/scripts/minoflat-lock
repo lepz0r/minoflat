@@ -1,0 +1,93 @@
+#!/bin/sh
+
+while [ -n "$1" ]; do
+	case "$1" in
+		-d)
+			dither=$2
+			shift
+			;;
+		-b)
+			blur=$2
+			shift
+			;;
+		-r)	reduction=$2
+			shift
+			;;
+		-s)	sharpen_amount=$2
+			shift
+			;;
+		-h)
+			echo "Usage: minoflat-lock [OPTION]"
+			echo "	-b set the blur strength (default 128)"
+			echo "	-d set the dither quality, 1 is no dithering 0 is automatic (default 0)"
+			echo "	-r set the image reduction size before blurring (default 64)"
+			echo "	-s set the post-sharpening amount (default 2)"
+			exit
+			;;
+esac
+shift
+done
+
+if [ -z "$blur" ]
+then
+	blur=128
+fi
+
+if [ -z "$dither" ]
+then
+	dither=0
+fi
+
+if [ -z "$sharpen_amount" ]
+then
+	sharpen_amount=2
+fi
+
+if [ -z "$reduction" ]
+then
+	reduction=64
+fi
+
+backhdr=/tmp/lock_$USER.tif
+back=/tmp/lock_$USER.png
+
+reduced=$(echo "scale=8; 100/$reduction"|bc)
+resize=$((100*$reduction))
+blur_divided=$(echo "scale=8; $blur/$reduction"|bc)
+sharpen=$(echo "scale=0; $blur_divided/2"|bc)
+echo $sharpen
+fg=$(xrdb -query | grep foreground | sed s/\*\.foreground:\	#//ig)
+bg=$(xrdb -query | grep background | sed s/\*\.background:\	//ig)
+green=$(xrdb -query | grep color2 | sed s/\*\.color2:\	#//ig)
+red=$(xrdb -query | grep -P 'color1(?![0-9])' | sed s/\*\.color1:\	#//ig)
+blue=$(xrdb -query | grep color4 | sed s/\*\.color4:\	#//ig)
+font=$(xrdb -query | grep sansserif | sed s/\*\.sansserif:\	//ig)
+
+declare -i resx 
+declare -i resxhalf
+
+scrot -z "$back" 
+resx=$(identify "$back" | grep -Po '[0-9]*?(?=(x))' | head -1)
+blur_divided=$(echo "scale=8; $blur/$reduction"|bc)
+resy=$(identify "$back" | grep -Po '(?<=(x))[0-9]*' | head -1)
+
+resxhalf=$(($resx/2))
+resyhalf=$(($resy/2))
+
+echo "Screen resolution : "$resx"x"$resy""&
+echo "Center: $resxhalf:$resyhalf"&
+echo "Blurring"&
+
+if [ "$dither" = 1 ]
+then
+convert  -filter Catrom -thumbnail "$reduced"% -blur 0x"$blur_divided" -sharpen 0x"$sharpen"+"$sharpen_amount" -fill "$bg" -colorize 50% -filter Cubic -resize "$resize"% "$back" "$back"
+echo "No dithering applied"&
+else
+convert  -filter Catrom -thumbnail "$reduced"% -depth 10 -blur 0x"$blur_divided" -sharpen 0x"$sharpen"+"$sharpen_amount" -fill "$bg" -colorize 50% -filter Cubic -resize "$resize"% "$back" "$backhdr"
+echo "Applying dither"&
+convert  -define png:compression-level=0 -treedepth "$dither" -dither FloydSteinberg -colors 16777216 -depth 8 "$backhdr" "$back"
+rm "$backhdr"
+fi
+
+i3lock -i "$back" --force-clock --timecolor "$fg"ff --datecolor "$fg"ff --timesize 144 --datesize 36 --wrongsize 24 --verifsize 24 --datepos "$resxhalf:630" --timepos "$resxhalf:550" --timestr "%H:%M" --time-font "$font" --date-font "$font" --wrong-font "$font" --verif-font "$font" --indicator --indpos "$resxhalf:860" --insidecolor "$bg"00 --line-uses-inside --keyhlcolor "$green"ff --separatorcolor 00000000 --ringcolor "$fg"ff --bshlcolor "$red"ff --ringwrongcolor "$red"ff --insidewrongcolor 00000000 --ringvercolor "$blue"ff --insidevercolor 00000000 --verifcolor "$fg"ff --wrongcolor "$fg"ff --wrongtext="Wrong" --radius 90
+rm "$back"

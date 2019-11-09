@@ -1,8 +1,13 @@
 #!/bin/sh
+
+# Load .Xresources
 xrdb ~/.Xresources
 ac=$(xrdb -query | grep accent | sed s/\*\.accent:\	//ig)
 bg=$(xrdb -query | grep background | sed s/\*\.background:\	//ig)
 fg=$(xrdb -query | grep foreground | sed s/\*\.foreground:\	//ig)
+
+# Enable auto lock
+xautolock -time 1 -bell 0 -locker ~/.minoflat/scripts/minoflat-lock &
 
 # Enable notification
 dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$fg" -nf "$fg" -nfr "$ac" -lfr "$ac" -hfr "$ac" &
