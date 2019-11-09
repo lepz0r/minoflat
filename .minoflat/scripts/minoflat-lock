@@ -20,7 +20,7 @@ while [ -n "$1" ]; do
 			echo "Usage: minoflat-lock [OPTION]"
 			echo "	-b set the blur strength (default 128)"
 			echo "	-d set the dither quality, 1 is no dithering 0 is automatic (default 0)"
-			echo "	-r set the image reduction size before blurring (default 64)"
+			echo "	-r set the image downscaling before blurring (default 64)"
 			echo "	-s set the post-sharpening amount (default 2)"
 			exit
 			;;
