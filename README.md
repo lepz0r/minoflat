@@ -19,9 +19,10 @@ Supported WMs
 |Rofi|rofi|rofi|rofi|rofi|Launcher|
 |xrdb|x11-xserver-utils|xorg-xrdb|xrdb|xrdb|For loading .Xresources|
 |xautolock|xautolock|xautolock|xautolock|xautolock|For auto locking|
-|i3lock-color|-*|i3lock-color|i3lock-color (Overlay)***|i3lock-color|Lockscreen|
+|i3lock-color|-*|i3lock-color|i3lock-color***|i3lock-color|Lockscreen|
 |scrot|scrot|scrot|scrot|scrot|For taking screenshot for the lockscreen|
 |ImageMagick|imagemagick|imagemagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen|
+|oomox|https://github.com/themix-project/oomox/releases|oomox**|-*|-*|Generate a GTK theme to match the color scheme|
 
 \* Must be built from source\
 \*\* Package available on AUR\
