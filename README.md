@@ -1,7 +1,7 @@
 # Requirements
 Supported WMs
 
-|WM|Ubuntu|Arch Linux|Gentoo|Void|
+|WM|Debian|Arch Linux|Gentoo|Void|
 |-|-|-|-|-|
 |i3-gaps|-*|i3-gaps|i3-gaps|i3-gaps|
 |bspwm|bspwm|bspwm|bspwm|bspwm|
@@ -10,7 +10,7 @@ Supported WMs
 
 **Programs**
 
-|Program|Ubuntu|Arch Linux|Gentoo|Void|Explanation|
+|Program|Debian|Arch Linux|Gentoo|Void|Explanation|
 |-|-|-|-|-|-|
 |Compton|compton|compton|compton|compton|Compositor for shadow & fading|
 |Dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
@@ -32,13 +32,13 @@ Supported WMs
 
 Icon Font
 
-|Font|Ubuntu|Arch Linux|Gentoo|Void|
+|Font|Debian|Arch Linux|Gentoo|Void|
 |-|-|-|-|-|
 |Font Awesome 5|fonts-font-awesome|ttf-font-awesome|fontawesome|font-awesome5|
 
 Default Fonts
 
-|Font|Ubuntu|Arch Linux|Gentoo|Void|
+|Font|Debian|Arch Linux|Gentoo|Void|
 |-|-|-|-|-|
 |Roboto|fonts-roboto|ttf-roboto|roboto|fonts-roboto-ttf|
 |Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk|noto-cjk|noto-fonts-cjk|
