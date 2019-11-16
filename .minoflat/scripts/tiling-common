@@ -15,4 +15,3 @@ dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$fg" -nf "$fg" -nfr
 exec hsetroot -solid $bg &
 # Enable shadow and fade
 exec compton &
-exec i3
