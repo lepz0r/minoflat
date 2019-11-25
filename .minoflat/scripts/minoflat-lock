@@ -55,12 +55,12 @@ reduced=$(echo "scale=8; 100/$reduction"|bc)
 resize=$((100*$reduction))
 blur_divided=$(echo "scale=8; $blur/$reduction"|bc)
 sharpen=$(echo "scale=0; $blur_divided/2"|bc)
-echo $sharpen
 fg=$(xrdb -query | grep foreground | sed s/\*\.foreground:\	#//ig)
 bg=$(xrdb -query | grep background | sed s/\*\.background:\	//ig)
 green=$(xrdb -query | grep color2 | sed s/\*\.color2:\	#//ig)
 red=$(xrdb -query | grep -P 'color1(?![0-9])' | sed s/\*\.color1:\	#//ig)
 blue=$(xrdb -query | grep color4 | sed s/\*\.color4:\	#//ig)
+accent=$(xrdb -query | grep 'accent' | sed s/\*\.accent:\	#//ig)
 font=$(xrdb -query | grep sansserif | sed s/\*\.sansserif:\	//ig)
 
 declare -i resx 
@@ -89,5 +89,5 @@ convert  -define png:compression-level=0 -treedepth "$dither" -dither FloydStein
 rm "$backhdr"
 fi
 
-i3lock -i "$back" --force-clock --timecolor "$fg"ff --datecolor "$fg"ff --timesize 144 --datesize 36 --wrongsize 24 --verifsize 24 --datepos "$resxhalf:630" --timepos "$resxhalf:550" --timestr "%H:%M" --time-font "$font" --date-font "$font" --wrong-font "$font" --verif-font "$font" --indicator --indpos "$resxhalf:860" --insidecolor "$bg"00 --line-uses-inside --keyhlcolor "$green"ff --separatorcolor 00000000 --ringcolor "$fg"ff --bshlcolor "$red"ff --ringwrongcolor "$red"ff --insidewrongcolor 00000000 --ringvercolor "$blue"ff --insidevercolor 00000000 --verifcolor "$fg"ff --wrongcolor "$fg"ff --wrongtext="Wrong" --radius 90
+i3lock -i "$back" --force-clock --timecolor "$fg"ff --datecolor "$fg"ff --timesize 144 --datesize 36 --wrongsize 24 --verifsize 24 --datepos "$resxhalf:$(($resyhalf+90))" --timepos "$resxhalf:$(($resyhalf+10))" --timestr "%H:%M" --time-font "$font" --date-font "$font" --wrong-font "$font" --verif-font "$font" --indicator --indpos "$resxhalf:$(($resyhalf+320))" --insidecolor "$bg"00 --line-uses-inside --keyhlcolor "$accent"ff --separatorcolor 00000000 --ringcolor "$fg"ff --bshlcolor "$red"ff --ringwrongcolor "$red"ff --insidewrongcolor 00000000 --ringvercolor "$blue"ff --insidevercolor 00000000 --verifcolor "$fg"ff --wrongcolor "$fg"ff --wrongtext="Wrong" --radius 90 
 rm "$back"
