@@ -1,7 +1,7 @@
 # Requirements
 Supported WMs
 
-|WM|Debian|Arch Linux|Fedora|Gentoo|Void|
+|WM|Debian|Arch|Fedora|Gentoo|Void|
 |-|-|-|-|-|-|
 |i3-gaps|-*|i3-gaps|-*|i3-gaps|i3-gaps|
 |bspwm|bspwm|bspwm|bspwm|bspwm|bspwm|
@@ -10,9 +10,10 @@ Supported WMs
 
 **Programs**
 
-|Program|Debian|Arch Linux|Fedora|Gentoo|Void|Explanation|
+|Program|Debian|Arch|Fedora|Gentoo|Void|Explanation|
 |-|-|-|-|-|-|-|
-|Compton|compton|compton|compton|compton|compton|Compositor for shadow & fading|
+|Compton****|compton|- (replaced by Picom)|compton|compton|- (replaced by Picom)|Compositor for shadow & fading|
+|Picom****|-*|picom|picom*****|picom|picom|Compositor for shadow & fading|
 |Dunst|dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
 |hsetroot|hsetroot|hsetroot|-*|hsetroot|polybar|Set workspace background color|
 |Polybar|-*|polybar**|-*|polybar|polybar|Bar|
@@ -26,19 +27,21 @@ Supported WMs
 
 \* Must be built from source\
 \*\* Package available on AUR\
-\*\*\* Search on https://gpo.zugaina.org/ to find overlay that have the package
+\*\*\* Search on https://gpo.zugaina.org/ to find overlay that have the package\
+\*\*\*\* Install only one of both\
+\*\*\*\*\* Only available in Rawhide repository
 
 **Fonts**
 
 Icon Font
 
-|Font|Debian|Arch Linux|Fedora|Gentoo|Void|
+|Font|Debian|Arch|Fedora|Gentoo|Void|
 |-|-|-|-|-|-|
 |Font Awesome 5|fonts-font-awesome|ttf-font-awesome|-*|fontawesome|font-awesome5|
 
 Default Fonts
 
-|Font|Debian|Arch Linux|Fedora|Gentoo|Void|
+|Font|Debian|Arch|Fedora|Gentoo|Void|
 |-|-|-|-|-|-|
 |Roboto|fonts-roboto|ttf-roboto|google-roboto-fonts|roboto|fonts-roboto-ttf|
 |Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk|google-noto-sans-cjk-*-fonts|noto-cjk|noto-fonts-cjk|
