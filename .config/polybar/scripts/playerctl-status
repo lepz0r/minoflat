@@ -1,0 +1,6 @@
+#!/bin/sh
+
+artist=$(playerctl metadata |grep xesam:artist | sed 's/.* xesam:artist *//ig')
+title=$(playerctl metadata |grep xesam:title | sed 's/.* xesam:title *//ig')
+
+echo "$artist - $title"

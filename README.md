@@ -12,24 +12,25 @@ Supported WMs
 
 |Program|Debian|Arch|Fedora|Gentoo|Void|Explanation|
 |-|-|-|-|-|-|-|
-|Compton****|compton|- (replaced by Picom)|compton|compton|- (replaced by Picom)|Compositor for shadow & fading|
-|Picom****|-*|picom|picom*****|picom|picom|Compositor for shadow & fading|
+|Compton*<sup>4</sup>|compton|- (replaced by Picom)|compton|compton|- (replaced by Picom)|Compositor for shadow & fading|
+|Picom*<sup>4</sup>|-*<sup>1</sup>|picom|picom*<sup>5</sup>|picom|picom|Compositor for shadow & fading|
 |Dunst|dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
-|hsetroot|hsetroot|hsetroot|-*|hsetroot|polybar|Set workspace background color|
-|Polybar|-*|polybar**|-*|polybar|polybar|Bar|
+|hsetroot|hsetroot|hsetroot|-*<sup>1</sup>|hsetroot|polybar|Set workspace background color|
+|Polybar|-*<sup>1</sup>|polybar*<sup>2</sup>|-*<sup>1</sup>|polybar|polybar|Bar|
 |Rofi|rofi|rofi|rofi|rofi|rofi|Launcher|
 |xrdb|x11-xserver-utils|xorg-xrdb|xorg-x11-server-utils|xrdb|xrdb|For loading .Xresources|
 |xautolock|xautolock|xautolock|xautolock|xautolock|xautolock|For auto locking|
-|i3lock-color|-*|i3lock-color|-*|i3lock-color***|i3lock-color|Lockscreen|
+|playerctl|playerctl|playerctl|playerctl|playerctl|playerctl|MPRIS (music) support|
+|i3lock-color|-*<sup>1</sup>|i3lock-color|-*<sup>1</sup>|i3lock-color*<sup>3</sup>|i3lock-color|Lockscreen|
 |scrot|scrot|scrot|scrot|scrot|scrot|For taking screenshot for the lockscreen|
 |ImageMagick|imagemagick|imagemagick|ImageMagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen|
-|oomox|https://github.com/themix-project/oomox/releases|oomox**|-*|-*|-*|Generate a GTK theme to match the color scheme|
+|oomox|https://github.com/themix-project/oomox/releases|oomox*<sup>2</sup>|-*<sup>1</sup>|-*<sup>1</sup>|-*<sup>1</sup>|Generate a GTK theme to match the color scheme|
 
-\* Must be built from source\
-\*\* Package available on AUR\
-\*\*\* Search on https://gpo.zugaina.org/ to find overlay that have the package\
-\*\*\*\* Install only one of both\
-\*\*\*\*\* Only available in Rawhide repository
+\*<sup>1</sup> Must be built from the source\
+\*<sup>2</sup>Package available on AUR\
+\*<sup>3</sup> Search on https://gpo.zugaina.org/ to find overlay that have the package\
+\*<sup>4</sup> Install only one of both\
+\*<sup>5</sup> Only available in Rawhide repository
 
 **Fonts**
 
