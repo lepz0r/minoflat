@@ -17,7 +17,7 @@ font-2 = Noto Sans CJK JP:size=9:antialias=true;0
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-modules-left = i3 bspwm 
+modules-left = i3 bspwm playerctl
 modules-center = xwindow 
 modules-right = network cpu memory volume date time
 
@@ -61,6 +61,13 @@ label-focused-foreground = ${xrdb:background:#000000 value}
 label-unfocused-padding = 3
 label-focused-padding = 3
 label-occupied-padding = 3
+
+[module/playerctl]
+type = custom/script
+interval = 1
+format-prefix = "  "
+format = <label>
+exec = ~/.config/polybar/scripts/playerctl-status
 
 [module/network]
 type = internal/network
