@@ -1,7 +1,7 @@
 #!/bin/sh
 
-artist=$(playerctl metadata |grep xesam:artist | sed 's/.* xesam:artist *//ig')
-title=$(playerctl metadata |grep xesam:title | sed 's/.* xesam:title *//ig')
+artist=$(playerctl metadata 2> /dev/null |grep xesam:artist | sed 's/.* xesam:artist *//ig')
+title=$(playerctl metadata 2> /dev/null |grep xesam:title | sed 's/.* xesam:title *//ig')
 stat=$(playerctl status 2> /dev/null)
 artist_maxlength=30
 title_maxlength=40
@@ -26,12 +26,26 @@ else
 	title_truncated=$title
 fi
 
+if [ "$1" == "-s" ]
+then
 case "$stat" in
 	"Playing")
-		echo "  $artist_truncated - $title_truncated"
+		echo ""
 		;;
 	"Paused")
-		echo "  $artist_truncated - $title_truncated"
+		echo ""
+		;;
+	*)
+		echo ""
+		;;
+esac
+exit
+fi
+
+
+case "$stat" in
+	"Playing"|"Paused")
+		echo "$artist_truncated - $title_truncated"
 		;;
 	*)
 		echo ""

@@ -13,7 +13,7 @@ Supported WMs
 |Program|Debian|Arch|Fedora|Gentoo|Void|Explanation|
 |-|-|-|-|-|-|-|
 |Compton*<sup>4</sup>|compton|- (replaced by Picom)|compton|compton|- (replaced by Picom)|Compositor for shadow & fading|
-|Picom*<sup>4</sup>|-*<sup>1</sup>|picom|picom*<sup>5</sup>|picom|picom|Compositor for shadow & fading|
+|Picom*<sup>4</sup>|-*<sup>1</sup>|picom|picom|picom|picom|Compositor for shadow & fading|
 |Dunst|dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
 |hsetroot|hsetroot|hsetroot|-*<sup>1</sup>|hsetroot|polybar|Set workspace background color|
 |Polybar|-*<sup>1</sup>|polybar*<sup>2</sup>|-*<sup>1</sup>|polybar|polybar|Bar|
@@ -30,7 +30,6 @@ Supported WMs
 \*<sup>2</sup>Package available on AUR\
 \*<sup>3</sup> Search on https://gpo.zugaina.org/ to find overlay that have the package\
 \*<sup>4</sup> Install only one of both\
-\*<sup>5</sup> Only available in Rawhide repository
 
 **Fonts**
 

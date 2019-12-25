@@ -65,9 +65,16 @@ label-occupied-padding = 3
 [module/playerctl]
 type = custom/script
 interval = 1
-format-prefix = "  "
 format = <label>
 exec = ~/.config/polybar/scripts/playerctl-status
+
+[module/playerctl-prefix]
+type = custom/script
+interval = 1
+format = <label>
+exec = ~/.config/polybar/scripts/playerctl-status -s
+click-left = playerctl play-pause
+click-right = dunstify $(date)
 
 [module/network]
 type = internal/network
@@ -83,17 +90,11 @@ label-connected =  %downspeed%   %upspeed%
 type = internal/xwindow
 label-maxlen = 160
 
-[module/date]
-type = internal/date
-interval = 1.0
-date =  %a %d-%b-%Y 
-label = %date% 
-
 [module/time]
 type = internal/date
 interval = 1.0
-time = %H:%M 
-label = %time% 
+date = %H:%M 
+date-alt =  %a %d-%b-%Y %H:%M 
 
 [module/cpu]
 type = internal/cpu
