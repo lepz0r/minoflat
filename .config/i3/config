@@ -1,5 +1,6 @@
 # ----- Start initialization script -----
 exec ~/.minoflat/scripts/tiling-common
+exec ~/.minoflat/scripts/minoflat-init
 
 # ----- Variables -----
 

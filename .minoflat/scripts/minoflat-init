@@ -1,0 +1,5 @@
+#!/bin/sh
+~/.minoflatinit
+for initscripts in ~/.minoflatinit.d/* ; do
+	$initscripts
+done

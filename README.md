@@ -52,6 +52,9 @@ Default Fonts
 # Installation
 Copy .minoflat directory, .Xresources and .Xresources.d directory to your home directory (~) and some configurations in .config to ~/.config or you can copy all files in this directory to your home directory
 
+# User scripts
+edit ~/.minoflatinit or put a shell script in ~/.minoflatinit.d/ for user scripts
+
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
 Programs: qutebrowser, st, neofetch & cmus\

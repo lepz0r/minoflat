@@ -6,6 +6,9 @@ sxhkd &
 xsetroot -cursor_name left_ptr &
 polybar -r mybar &
 
+# ----- Start user's initialization scripts -----
+~/.minoflat/scripts/minoflat-init
+
 # ----- General -----
 
 # Set workspace name
