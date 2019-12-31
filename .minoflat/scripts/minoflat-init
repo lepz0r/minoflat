@@ -1,4 +1,11 @@
 #!/bin/sh
+xrdb ~/.Xresources
+ac=$(xrdb -query | grep accent | sed s/\*\.accent:\	//ig)
+bg=$(xrdb -query | grep background | sed s/\*\.background:\	//ig)
+fg=$(xrdb -query | grep foreground | sed s/\*\.foreground:\	//ig)
+
+# Executing "hsetroot -solid $background" in i3 at startup doesn't set background color, so we execute here
+exec hsetroot -solid $bg &
 ~/.minoflatrc
 for initscripts in ~/.minoflatrc.d/* ; do
 	$initscripts

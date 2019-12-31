@@ -1,13 +1,11 @@
 #! /bin/sh
 
 # ----- Start initialization scripts -----
-~/.minoflat/scripts/tiling-common 
+~/.minoflat/scripts/tiling-init
 sxhkd &
 xsetroot -cursor_name left_ptr &
 polybar -r mybar &
 
-# ----- Start user's initialization scripts -----
-~/.minoflat/scripts/minoflat-init
 
 # ----- General -----
 
