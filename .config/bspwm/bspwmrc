@@ -5,7 +5,7 @@
 sxhkd &
 xsetroot -cursor_name left_ptr &
 polybar -r mybar &
-
+echo "bspwm" > /tmp/minoflat_$USER/current_wm
 
 # ----- General -----
 

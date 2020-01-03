@@ -120,3 +120,8 @@ label-muted =  -
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+[module/power-button]
+type = custom/text
+content = 
+click-left = ~/.minoflat/scripts/minoflat-system-menu

@@ -1,3 +1,9 @@
+# Features
+* .Xresources theming
+* Media control with media keys or keyboard shortcut
+* Power control
+* Auto reload .Xresources & restart bar if reloaded
+
 # Requirements
 Supported WMs
 
@@ -62,6 +68,23 @@ You can change the configuration in `~/.config/minoflat/config` but currently is
 `~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script\
 `~/.minoflatrc` and every scripts in `~/.minoflatrc.d` will be executed after minoflat's init script
 
+# Shortcuts
+This will work with all supported wms, media control can also be controlled with media keys\
+\
+Music :
+* Super+F5 : Previous track
+* Super+F7 : Next track
+* Super+F6 : Play/Pause track
+
+Volume :
+* Super+F9 : Volume down
+* Super+F11 : Volume up
+* Super+F10 : Mute/Unmute
+
+
+Super+shift+s (i3), Super+alt+s (bspwm) : Open System Menu
+
+\* Super keys is Windows key for PC keyboards or Command key for Mac keyboards
 
 # Preview
 <img src="screenshots/2019-10-20-11.png">\

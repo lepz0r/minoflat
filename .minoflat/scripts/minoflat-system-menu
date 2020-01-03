@@ -1,9 +1,13 @@
 #!/bin/sh
 reload="Reload configuration"
-quit="Log out"
+quit="Quit"
 suspend="Suspend"
 reboot="Reboot"
 shutdown="Shutdown"
+
+content="$reload\n$quit\n$shutdown\n$reboot\n$suspend"
+confirmation="Yes\nNo"
+current_wm=$(cat /tmp/minoflat_$USER/current_wm)
 
 help (){
 			echo "Usage: minoflat-system-menu [OPTIONS]"
@@ -12,6 +16,8 @@ help (){
 			echo "	-m: set confirmation message"
 			echo "	reload,quit,shutdown,reboot,suspend: jump to confirmation dialog and do the action"
 }
+
+echoerr() { echo -e "$@" 1>&2; }
 
 while [ -n "$1" ]; do
 	case "$1" in
@@ -46,14 +52,10 @@ while [ -n "$1" ]; do
 shift
 done
 
-echoerr() { echo -e "$@" 1>&2; }
-
-content="$reload\n$quit\n$shutdown\n$reboot\n$suspend"
-confirmation="Yes\nNo"
 
 if [ -z "$mode" ]
 then
-mode=$(echo -e $content | rofi -dmenu -i)
+mode=$(echo -e $content | rofi -dmenu -i -hide-scrollbar true -p "System menu ")
 
 fi
 
@@ -64,11 +66,26 @@ fi
 
 if [ -z "$reload_command" ]
 then
-	reload_command="echoerr \e[31mError: \e[0mno reload command specified"
+	case "$current_wm" in
+		"bspwm")
+			reload_command="bspc wm -r";;
+		"i3")
+			reload_command="i3-msg reload";;
+		*)
+		reload_command="echoerr \e[31mError: \e[0mno reload command specified";;
+	esac
 fi
 if [ -z "$quit_command" ]
 then
-	quit_command="echoerr \e[31mError: \e[0mno quit command specified"
+	case "$current_wm" in
+		"bspwm")
+			quit_command="bspc quit";;
+		"i3")
+			quit_command="i3-msg reload";;
+		*)
+		quit_command="echoerr \e[31mError: \e[0mno quit command specified"
+	esac
+
 fi
 
 case $mode in
@@ -88,12 +105,20 @@ esac
 
 if [ "$mode" != "$reload" ]
 then
-confirm=$(echo -e $confirmation  | rofi -dmenu -i -p "$confirmation_message")
+confirm=$(echo -e $confirmation  | rofi -dmenu -i -hide-scrollbar true -p "$confirmation_message")
 else
 	confirm="Yes"
 fi
 
 if [ "$confirm" == "Yes" ]
 then
+	if [ "$mode" == "$reload" ]
+	then
+	~/.minoflat/scripts/reload_xresources
+	killall polybar
+	nohup polybar -r mybar > /dev/null &
 	$action
+else
+	$action
+fi
 fi

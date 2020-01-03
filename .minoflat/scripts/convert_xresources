@@ -30,12 +30,13 @@ while [ -n "$1" ]; do
 	esac
 	shift
 done
-echo "" >> .Xresources
 
 if [ -z "$output" ]
 then
-	output=.Xresources
+	output=/tmp/minoflat_$USER/.Xresources
 fi
+
+echo "" >> $output
 
 if [ -z "$file" ]
 then
