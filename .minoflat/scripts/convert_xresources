@@ -1,0 +1,81 @@
+#!/bin/sh
+if [ "$1" == -h ] 
+then
+			echo "Usage: convert_xresources [OPTION]"
+			echo "	-A	Define accent color, default to CURCOL"
+			echo "	-f	Specify .Xresources file to convert"
+			echo "	-Fm	Specify monospace font default to Source Code Pro"
+			echo "	-Fs	Specify Sans Serif font default to Roboto"
+			exit
+fi
+while [ -n "$1" ]; do
+	case "$1" in
+		-f) 
+			file=$2
+			shift
+			;;
+		-A)
+			accent=$2
+			shift
+			;;
+		-Fm)
+			monospace=$2
+			;;
+		-Fs)
+			sans=$2
+			;;
+		-o)
+			output=$2
+			;;
+	esac
+	shift
+done
+echo "" >> .Xresources
+
+if [ -z "$output" ]
+then
+	output=.Xresources
+fi
+
+if [ -z "$file" ]
+then
+	echo "No file specified"
+	exit
+else
+	echo "! Generated with Minoflat's convert_xresources" > $output
+	echo "" >> $output
+	sed "s/\*\.color/#define C/ig" $file | sed "s/://ig" |sed "s/*.fore/#define F/ig"|sed "s/*.back/#define B/ig"|sed "s/ground/G/ig"|sed "s/*.cursorColor/#define CURCOL/ig" >> $output
+
+	echo "" >> $output
+
+
+	if [ -z "$accent" ]
+	then
+		echo "#define ACC CURCOL" >> $output
+	else
+		echo "#define ACC C$accent" >> $output
+	fi
+
+	echo "" >> $output
+	echo "! Fonts" >> $output
+	if [ -z "$monospace" ]
+	then
+		echo "#define xresources_monospace Source Code Pro" >> $output
+	else
+		echo "#define xresources_monospace $monospace" >> $output
+	fi
+
+
+	if [ -z "$sans" ]
+	then
+		echo "#define xresources_sansserif Roboto" >> $output
+	else
+		echo "#define xresources_monospace $sans" >> $output
+	fi
+
+	echo "" >> $output
+	echo "! Includes" >> $output
+	for f in ~/.Xresources.d/* ; do
+		echo "#include \"$f\"" >> $output
+	done
+fi

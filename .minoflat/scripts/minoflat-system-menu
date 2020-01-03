@@ -1,0 +1,99 @@
+#!/bin/sh
+reload="Reload configuration"
+quit="Log out"
+suspend="Suspend"
+reboot="Reboot"
+shutdown="Shutdown"
+
+help (){
+			echo "Usage: minoflat-system-menu [OPTIONS]"
+			echo "	-r: set reload command"
+			echo "	-q: set quit command"
+			echo "	-m: set confirmation message"
+			echo "	reload,quit,shutdown,reboot,suspend: jump to confirmation dialog and do the action"
+}
+
+while [ -n "$1" ]; do
+	case "$1" in
+		-r)
+			reload_command=$2
+			shift;;
+		-q)
+			quit_command=$2
+			shift;;
+		-m)
+			confirmation_message=$2
+			shift;;
+		reload)
+			mode=$reload;;
+		quit)
+			mode=$quit;;
+		suspend)
+			mode=$suspend;;
+		reboot)
+			mode=$reboot;;
+		shutdown)
+			mode=$shutdown;;
+		-h)
+			help
+			exit;;
+		*)
+			echo -e "\e[31mError: \e[0mUnknown parameter: $1"
+			echo ""
+			help
+			exit;;
+	esac
+shift
+done
+
+echoerr() { echo -e "$@" 1>&2; }
+
+content="$reload\n$quit\n$shutdown\n$reboot\n$suspend"
+confirmation="Yes\nNo"
+
+if [ -z "$mode" ]
+then
+mode=$(echo -e $content | rofi -dmenu -i)
+
+fi
+
+if [ -z "$confirmation_message" ]
+then
+	confirmation_message="Are you sure"
+fi
+
+if [ -z "$reload_command" ]
+then
+	reload_command="echoerr \e[31mError: \e[0mno reload command specified"
+fi
+if [ -z "$quit_command" ]
+then
+	quit_command="echoerr \e[31mError: \e[0mno quit command specified"
+fi
+
+case $mode in
+	$reload)
+	action=$reload_command;;
+	$quit)
+	action=$quit_command;;
+	$suspend)
+	action="dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true" ;;
+	$reboot)
+	action="dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true" ;;
+	$shutdown)
+	action="dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true" ;;
+	*)
+	exit;;
+esac
+
+if [ "$mode" != "$reload" ]
+then
+confirm=$(echo -e $confirmation  | rofi -dmenu -i -p "$confirmation_message")
+else
+	confirm="Yes"
+fi
+
+if [ "$confirm" == "Yes" ]
+then
+	$action
+fi

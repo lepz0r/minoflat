@@ -1,5 +1,13 @@
 #!/bin/sh
 
+help(){
+			echo "Usage: minoflat-lock [OPTION]"
+			echo "	-b: set the blur strength (default 128)"
+			echo "	-d: set the dither quality, 1 is no dithering 0 is automatic (default 0)"
+			echo "	-r: set the image downscaling before blurring (default 64)"
+			echo "	-s: set the post-sharpening amount (default 2)"
+}
+
 while [ -n "$1" ]; do
 	case "$1" in
 		-d)
@@ -17,11 +25,13 @@ while [ -n "$1" ]; do
 			shift
 			;;
 		-h)
-			echo "Usage: minoflat-lock [OPTION]"
-			echo "	-b set the blur strength (default 128)"
-			echo "	-d set the dither quality, 1 is no dithering 0 is automatic (default 0)"
-			echo "	-r set the image downscaling before blurring (default 64)"
-			echo "	-s set the post-sharpening amount (default 2)"
+			help
+			exit
+			;;
+		*)
+			echo -e "\e[31mError: \e[0mUnknown parameter: $1"
+			echo ""
+			help
 			exit
 			;;
 esac
@@ -35,7 +45,7 @@ fi
 
 if [ -z "$dither" ]
 then
-	dither=0
+	dither=1
 fi
 
 if [ -z "$sharpen_amount" ]
@@ -48,8 +58,8 @@ then
 	reduction=64
 fi
 
-backhdr=/tmp/lock_$USER.tif
-back=/tmp/lock_$USER.png
+backhdr=/tmp/minoflat_$USER/lock.tif
+back=/tmp/minoflat_$USER/lock.png
 
 reduced=$(echo "scale=8; 100/$reduction"|bc)
 resize=$((100*$reduction))

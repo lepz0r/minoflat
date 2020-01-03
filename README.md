@@ -16,7 +16,7 @@ Supported WMs
 |Picom<sup>4</sup>|-<sup>1</sup>|picom|picom|picom|picom|Compositor for shadow & fading|
 |Dunst|dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
 |hsetroot|hsetroot|hsetroot|-<sup>1</sup>|hsetroot|polybar|Set workspace background color|
-|Polybar|-<sup>1</sup>/PPA (https://launchpad.net/~kgilmer/+archive/ubuntu/speed-ricer)<sup>5</sup>|polybar<sup>2</sup>|-<sup>1</sup>|polybar|polybar|Bar|
+|Polybar|-<sup>1</sup>/PPA (https://launchpad.net/~kgilmer/+archive/ubuntu/speed-ricer, (polybar))<sup>5</sup>|polybar<sup>2</sup>|-<sup>1</sup>|polybar|polybar|Bar|
 |Rofi|rofi|rofi|rofi|rofi|rofi|Launcher|
 |xrdb|x11-xserver-utils|xorg-xrdb|xorg-x11-server-utils|xrdb|xrdb|For loading .Xresources|
 |xautolock|xautolock|xautolock|xautolock|xautolock|xautolock|For auto locking|
@@ -46,7 +46,7 @@ Default Fonts
 |-|-|-|-|-|-|
 |Roboto|fonts-roboto|ttf-roboto|google-roboto-fonts|roboto|fonts-roboto-ttf|
 |Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk|google-noto-sans-cjk-*-fonts|noto-cjk|noto-fonts-cjk|
-|Source Code Pro|-*/PPA (https://launchpad.net/~kgilmer/+archive/ubuntu/regolith-stable)<sup>2</sup>|adobe-source-code-pro-fonts|adobe-source-code-pro-fonts|source-pro|font-adobe-source-code-pro|
+|Source Code Pro|-*/PPA (https://launchpad.net/~kgilmer/+archive/ubuntu/regolith-stable, fonts-source-code-pro-ttf)<sup>2</sup>|adobe-source-code-pro-fonts|adobe-source-code-pro-fonts|source-pro|font-adobe-source-code-pro|
 
 <sup>1</sup> Must be downloaded and copied to font directory/
 <sup>2</sup> PPA only available for Ubuntu / deriveratives
@@ -66,12 +66,6 @@ Program: GIMP\
 WM: bspwm
 <img src="screenshots/lock.png">
 Lockscreen
-
-
-# Scripts
-
-```~/.minoflat/scripts/tiling-common``` init script for i3 & bspwm and as a workaround for passing .Xresources value to hsetroot\
-```convert_xresources``` To convert .Xresources to Minoflat's format (see convert_xresources -h for information)
 
 # Credits
 Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes \
