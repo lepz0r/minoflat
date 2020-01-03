@@ -1,0 +1,4 @@
+#!/bin/sh
+exec xautolock -time 10 -bell 0 -locker ~/.minoflat/scripts/minoflat-lock &
+# Uncomment below and comment above if you want to use light-locker instead of minoflat-lock
+#exec light-locker &

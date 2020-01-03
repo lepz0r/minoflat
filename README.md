@@ -52,10 +52,16 @@ Default Fonts
 <sup>2</sup> PPA only available for Ubuntu / deriveratives
 
 # Installation
-Copy .minoflat directory, .Xresources and .Xresources.d directory to your home directory (~) and some configurations in .config to ~/.config or you can copy all files in this directory to your home directory
+Copy `.minoflat` directory, `.Xresources` and `.Xresources.d` directory to your home directory (`~`) and some configurations in `.config` to `~/.config` or you can copy all files in this directory to your home directory
+
+
+# Configuration
+You can change the configuration in `~/.config/minoflat/config` but currently is only for accent color
 
 # User scripts
-edit ~/.minoflatrc or put a shell script in ~/.minoflatrc.d/ for user scripts
+`~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script\
+`~/.minoflatrc` and every scripts in `~/.minoflatrc.d` will be executed after minoflat's init script
+
 
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
