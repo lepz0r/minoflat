@@ -95,15 +95,20 @@ Super+R (openbox) : Open DMenu
 <img src="screenshots/2019-10-20-11.png">\
 Programs: qutebrowser, st, neofetch & cmus\
 WM: i3-gaps
+Color Scheme: Relaxed
 <img src="screenshots/2019-11-06-03.png">
 Program: GIMP\
 WM: bspwm
+Color Scheme: Relaxed
 <img src="screenshots/2020-01-06-07_000.png">
 Program: Firefox PCManFM, neofetch, Firefox, vim\
 WM: openbox
+Color Scheme: Grape by zdj
 <img src="screenshots/lock.png">
 Lockscreen
+Color Scheme: Relaxed
 
 # Credits
 Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes \
 Picture edited with GIMP by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC
+Grape color scheme by zdj https://github.com/zdj/themes
