@@ -1,0 +1,39 @@
+#!/bin/sh
+
+while [ -n "$1" ]; do
+	case "$1" in
+		-o)
+			output=$2
+			shift
+			;;
+		-ov)
+			overlay=$2
+			shift
+			;;
+		-b)
+			bg=$2
+			shift
+			;;
+		*)
+			echo -e "\e[31mError: \e[0mUnknown parameter: $1"
+			exit
+			;;
+	esac
+	shift
+	done
+
+if [ -z "$output" ]
+then
+output=banana-leaf-output.png
+fi
+
+import -window root $output
+resx=$(identify "$output" | grep -Po '[0-9]*?(?=(x))' | head -1)
+resy=$(identify "$output" | grep -Po '(?<=(x))[0-9]*' | head -1)
+convert -fill "$bg" -colorize 100% "$output" "$output"
+echo resizing
+convert -resize 36% "$overlay" "$output.png.overlay"
+echo finalize
+composite -gravity Center "$output.png.overlay" "$output" "$output"
+
+rm "$output.png.overlay"
