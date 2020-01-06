@@ -31,6 +31,7 @@ while [ -n "$1" ]; do
 	shift
 done
 
+
 if [ -z "$output" ]
 then
 	output=/tmp/minoflat_$USER/.Xresources
@@ -43,12 +44,21 @@ then
 	echo "No file specified"
 	exit
 else
+	opacity=$(echo "obase=16; $(grep opacity ~/.config/minoflat/config | sed "s/opacity //ig")" | bc)
+	bg=$(grep background $file | sed "s/\t/ /ig" | sed "s/\*\.background: *#//ig")
 	echo "! Generated with Minoflat's convert_xresources" > $output
 	echo "" >> $output
 	sed "s/\*\.color/#define C/ig" $file | sed "s/://ig" |sed "s/*.fore/#define F/ig"|sed "s/*.back/#define B/ig"|sed "s/ground/G/ig"|sed "s/*.cursorColor/#define CURCOL/ig" >> $output
 
 	echo "" >> $output
 
+	if [ -z "$opacity" ]
+	then
+		
+		echo "#define BARBG #$bg" >> $output
+	else
+	echo "#define BARBG #$opacity$bg" >> $output
+	fi
 
 	if [ -z "$accent" ]
 	then

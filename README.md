@@ -11,6 +11,7 @@ Supported WMs
 |-|-|-|-|-|-|
 |i3-gaps|-*|i3-gaps|-*|i3-gaps|i3-gaps|
 |bspwm|bspwm|bspwm|bspwm|bspwm|bspwm|
+|openbox|openbox|openbox|openbox|openbox|openbox|
 
 \* Must be built from source
 
@@ -30,6 +31,7 @@ Supported WMs
 |i3lock-color|-<sup>1</sup>|i3lock-color|-<sup>1</sup>|i3lock-color<sup>3</sup>|i3lock-color|Lockscreen|
 |scrot|scrot|scrot|scrot|scrot|scrot|For taking screenshot for the lockscreen|
 |ImageMagick|imagemagick|imagemagick|ImageMagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen|
+|plank|plank|plank|plank|plank<sup>3</sup>|plank|For tiling wm's dock|
 |oomox|deb (https://github.com/themix-project/oomox/releases)|oomox<sup>2</sup>|-<sup>1</sup>|-<sup>1</sup>|-<sup>1</sup>|Generate a GTK theme to match the color scheme|
 
 <sup>1</sup> Must be built from the source\
@@ -58,18 +60,21 @@ Default Fonts
 <sup>2</sup> PPA only available for Ubuntu / deriveratives
 
 # Installation
-Copy `.minoflat` directory, `.Xresources` and `.Xresources.d` directory to your home directory (`~`) and some configurations in `.config` to `~/.config` or you can copy all files in this directory to your home directory
+Copy `.minoflat` directory, `.Xresources` `.Xresources.d` and `minoflatrc.d` directory to your home directory (`~`) and some configurations in `.config` to `~/.config` or you can copy all files in this directory to your home directory
 
 
 # Configuration
-You can change the configuration in `~/.config/minoflat/config` but currently is only for accent color
+You can change the configuration in `~/.config/minoflat/config`
+* `accent-color` : Change accent color
+* `opacity` : Change opacity for some element (currently for rofi only)
+* `terminal` : Change terminal
 
 # User scripts
 `~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script\
 `~/.minoflatrc` and every scripts in `~/.minoflatrc.d` will be executed after minoflat's init script
 
 # Shortcuts
-This will work with all supported wms, media control can also be controlled with media keys\
+This will work with all supported wms, media control can also be controlled with media keys, all WM use their default bindings\
 \
 Music :
 * Super+F5 : Previous track
@@ -81,8 +86,8 @@ Volume :
 * Super+F11 : Volume up
 * Super+F10 : Mute/Unmute
 
-
 Super+shift+s (i3), Super+alt+s (bspwm) : Open System Menu
+Super+R (openbox) : Open DMenu
 
 \* Super keys is Windows key for PC keyboards or Command key for Mac keyboards
 
@@ -93,6 +98,9 @@ WM: i3-gaps
 <img src="screenshots/2019-11-06-03.png">
 Program: GIMP\
 WM: bspwm
+<img src="screenshots/2020-01-06-07_000.png">
+Program: Firefox PCManFM, neofetch, Firefox, vim\
+WM: openbox
 <img src="screenshots/lock.png">
 Lockscreen
 

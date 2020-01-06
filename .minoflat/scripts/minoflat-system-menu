@@ -71,6 +71,8 @@ then
 			reload_command="bspc wm -r";;
 		"i3")
 			reload_command="i3-msg reload";;
+		"openbox")
+			reload_command="openbox --reconfigure";;
 		*)
 		reload_command="echoerr \e[31mError: \e[0mno reload command specified";;
 	esac
@@ -82,6 +84,8 @@ then
 			quit_command="bspc quit";;
 		"i3")
 			quit_command="i3-msg reload";;
+		"openbox")
+			quit_command="openbox --exit";;
 		*)
 		quit_command="echoerr \e[31mError: \e[0mno quit command specified"
 	esac
@@ -115,8 +119,15 @@ then
 	if [ "$mode" == "$reload" ]
 	then
 	~/.minoflat/scripts/reload_xresources
-	killall polybar
-	nohup polybar -r mybar > /dev/null &
+	killall polybar || true
+	case "$current_wm" in
+		"i3"|"bspwm" )
+			nohup polybar -r mybar > /dev/null &
+			;;
+		"openbox"| "fluxbox" )
+			nohup polybar -r floating > /dev/null &
+			;;
+	esac
 	$action
 else
 	$action

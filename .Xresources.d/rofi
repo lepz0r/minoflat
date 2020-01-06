@@ -1,5 +1,5 @@
-rofi.color-window: BG, BG, BG
-rofi.color-normal: BG, FG, BG, ACC, BG
+rofi.color-window: BARBG, BARBG, BARBG
+rofi.color-normal: #00000000, FG, #00000000, ACC, BG
 rofi.color-active: BG, FG, BG, ACC, BG
 rofi.color-urgent: BG, FG, BG, ACC, BG
 rofi.font: xresources_sansserif 10

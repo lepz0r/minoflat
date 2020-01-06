@@ -1,0 +1,3 @@
+#!/bin/sh
+terminal=$(grep terminal ~/.config/minoflat/config | sed "s/terminal //ig")
+$terminal

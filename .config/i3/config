@@ -164,7 +164,7 @@ bindsym XF86AudioStop exec "playerctl stop"
 
 # Alternative media control (for keyboards without media keys)
 bindsym $mod+F11 exec "amixer -q sset Master playback 1%+ unmute"
-bindsym $mod+F9 exec "amixer -q sset Master playback 2%- unmute"
+bindsym $mod+F9 exec "amixer -q sset Master playback 6%- unmute"
 bindsym $mod+F10 exec "amixer -q sset Master toggle"
 bindsym $mod+F6 exec "playerctl play-pause"
 bindsym $mod+F5 exec "playerctl previous"

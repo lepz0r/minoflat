@@ -5,7 +5,8 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	kitty
+
 
 # Media keys
 
@@ -55,7 +56,7 @@ super + F10
 
 # program launcher
 super + @space
-	exec rofi -terminal $term -sort -levenshtein-sort -matching normal -show run -modi run -location 1 rofi -show run -modi run -location 1 -separator-style none -bw 0 -lines 1 -columns 7 -width 100 -disable-history -hide-scrollbar -kb-row-select "Tab" -kb-row-tab ""
+	exec rofi -terminal $term -sort -levenshtein-sort -matching normal -show run -modi run -location 1 -separator-style none -bw 0 -lines 1 -columns 7 -width 100 -disable-history -hide-scrollbar -kb-row-select "Tab" -kb-row-tab ""
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -65,7 +66,7 @@ super + Escape
 # bspwm hotkeys
 #
 
-# quit/restart bspwm/open system menu
+# quit/restart bspwm
 super + alt + {q,r,s}
 	~/.minoflat/scripts/minoflat-system-menu -m "Are you sure you want to quit bspwm? " {quit,reload, }
 
