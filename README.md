@@ -101,7 +101,7 @@ Program: GIMP\
 WM: bspwm
 Color Scheme: Relaxed
 <img src="screenshots/2020-01-06-07_000.png">
-Program: Firefox PCManFM, neofetch, Firefox, vim\
+Program: Firefox PCManFM, neofetch, Firefox, Spotify, vim\
 WM: openbox
 Color Scheme: Grape by zdj
 <img src="screenshots/lock.png">
@@ -110,5 +110,5 @@ Color Scheme: Relaxed
 
 # Credits
 Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes \
-Picture edited with GIMP by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC
+Picture edited with GIMP by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC\
 Grape color scheme by zdj https://github.com/zdj/themes
