@@ -29,7 +29,7 @@ Supported WMs
 |xautolock|xautolock|xautolock|xautolock|xautolock|xautolock|For auto locking|
 |playerctl|playerctl|playerctl|playerctl|playerctl|playerctl|MPRIS (music) support|
 |i3lock-color|-<sup>1</sup>|i3lock-color|-<sup>1</sup>|i3lock-color<sup>3</sup>|i3lock-color|Lockscreen|
-|scrot|scrot|scrot|scrot|scrot|scrot|For taking screenshot for the lockscreen|
+|scrot|scrot|scrot|scrot|scrot|scrot|For taking screenshot|
 |ImageMagick|imagemagick|imagemagick|ImageMagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen|
 |plank|plank|plank|plank|plank<sup>3</sup>|plank|For tiling wm's dock|
 |oomox|deb (https://github.com/themix-project/oomox/releases)|oomox<sup>2</sup>|-<sup>1</sup>|-<sup>1</sup>|-<sup>1</sup>|Generate a GTK theme to match the color scheme|

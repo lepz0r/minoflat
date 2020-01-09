@@ -73,16 +73,26 @@ blue=$(xrdb -query | grep color4 | sed s/\*\.color4:\	#//ig)
 accent=$(xrdb -query | grep 'accent' | sed s/\*\.accent:\	#//ig)
 font=$(xrdb -query | grep sansserif | sed s/\*\.sansserif:\	//ig)
 
+
 declare -i resx 
 declare -i resxhalf
 
-scrot -z "$back" 
+import -silent -window root "$back"
 resx=$(identify "$back" | grep -Po '[0-9]*?(?=(x))' | head -1)
 blur_divided=$(echo "scale=8; $blur/$reduction"|bc)
 resy=$(identify "$back" | grep -Po '(?<=(x))[0-9]*' | head -1)
 
+timesize=$(echo "scale=5; 144*($resy/1080)"| bc)
+datesize=$(echo "scale=5; 36*($resy/1080)"| bc)
+wrongsize=$(echo "scale=5; 24*($resy/1080)"| bc)
+radius=$(echo "scale=5; 90*($resy/1080)"| bc)
+echo $timesize
+
 resxhalf=$(($resx/2))
 resyhalf=$(($resy/2))
+datepos=$resxhalf:$(($resyhalf+$(printf %.$2f $(echo "scale=5; 90*($resy/1080)"| bc))))
+timepos=$resxhalf:$(($resyhalf+$(printf %.$2f $(echo "scale=5; 10*($resy/1080)"| bc))))
+indpos=$resxhalf:$(($resyhalf+$(printf %.$2f $(echo "scale=5; 320*($resy/1080)"| bc))))
 
 echo "Screen resolution : "$resx"x"$resy""&
 echo "Center: $resxhalf:$resyhalf"&
@@ -90,14 +100,14 @@ echo "Blurring"&
 
 if [ "$dither" = 1 ]
 then
-convert  -filter Catrom -thumbnail "$reduced"% -blur 0x"$blur_divided" -sharpen 0x"$sharpen"+"$sharpen_amount" -fill "$bg" -colorize 50% -filter Cubic -resize "$resize"% "$back" "$back"
+convert  -filter Catrom -thumbnail "$reduced"% -blur 0x"$blur_divided" -sharpen 0x"$sharpen"+"$sharpen_amount" -fill "$bg" -colorize 50% -filter Cubic -resize $resx\x$resy\! "$back" "$back"
 echo "No dithering applied"&
 else
-convert  -filter Catrom -thumbnail "$reduced"% -depth 10 -blur 0x"$blur_divided" -sharpen 0x"$sharpen"+"$sharpen_amount" -fill "$bg" -colorize 50% -filter Cubic -resize "$resize"% "$back" "$backhdr"
+convert  -filter Catrom -thumbnail "$reduced"% -depth 10 -blur 0x"$blur_divided" -sharpen 0x"$sharpen"+"$sharpen_amount" -fill "$bg" -colorize 50% -filter Cubic -resize $resx\x$resy\! "$back" "$backhdr"
 echo "Applying dither"&
 convert  -define png:compression-level=0 -treedepth "$dither" -dither FloydSteinberg -colors 16777216 -depth 8 "$backhdr" "$back"
 rm "$backhdr"
 fi
 
-i3lock -i "$back" --force-clock --timecolor "$fg"ff --datecolor "$fg"ff --timesize 144 --datesize 36 --wrongsize 24 --verifsize 24 --datepos "$resxhalf:$(($resyhalf+90))" --timepos "$resxhalf:$(($resyhalf+10))" --timestr "%H:%M" --time-font "$font" --date-font "$font" --wrong-font "$font" --verif-font "$font" --indicator --indpos "$resxhalf:$(($resyhalf+320))" --insidecolor "$bg"00 --line-uses-inside --keyhlcolor "$accent"ff --separatorcolor 00000000 --ringcolor "$fg"ff --bshlcolor "$red"ff --ringwrongcolor "$red"ff --insidewrongcolor 00000000 --ringvercolor "$blue"ff --insidevercolor 00000000 --verifcolor "$fg"ff --wrongcolor "$fg"ff --wrongtext="Wrong" --radius 90 
+i3lock -i "$back" --force-clock --timecolor "$fg"ff --datecolor "$fg"ff --timesize $timesize --datesize $datesize --wrongsize $wrongsize --verifsize $wrongsize --datepos $datepos --timepos $timepos --timestr "%H:%M" --time-font "$font" --date-font "$font" --wrong-font "$font" --verif-font "$font" --indicator --indpos $indpos --insidecolor "$bg"00 --line-uses-inside --keyhlcolor "$accent"ff --separatorcolor 00000000 --ringcolor "$fg"ff --bshlcolor "$red"ff --ringwrongcolor "$red"ff --insidewrongcolor 00000000 --ringvercolor "$blue"ff --insidevercolor 00000000 --verifcolor "$fg"ff --wrongcolor "$fg"ff --wrongtext="Wrong" --radius $radius
 rm "$back"
