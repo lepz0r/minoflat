@@ -68,6 +68,7 @@ You can change the configuration in `~/.config/minoflat/config`
 * `accent-color` : Change accent color
 * `opacity` : Change opacity for some element (currently for rofi only)
 * `terminal` : Change terminal
+* `session-manager` : Change session manager to use, supported : `logind` and `consolekit`, systemd & elogind users should use `logind`, setting up this incorrectly may disable shutdown/reboot/suspend functionality
 
 # User scripts
 `~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script\

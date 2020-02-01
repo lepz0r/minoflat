@@ -8,6 +8,7 @@ shutdown="Shutdown"
 content="$reload\n$quit\n$shutdown\n$reboot\n$suspend"
 confirmation="Yes\nNo"
 current_wm=$(cat /tmp/minoflat_$USER/current_wm)
+session_manager=$(grep session-manager ~/.config/minoflat/config | sed "s/session-manager //ig"| sed "s/\#.*//ig")
 
 help (){
 			echo "Usage: minoflat-system-menu [OPTIONS]"
@@ -92,20 +93,35 @@ then
 
 fi
 
+case $session_manager in
+	"systemd"|"logind"|"elogind")
+		suspend_dest="org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true"
+		shutdown_dest="org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.PowerOff boolean:true"
+		reboot_dest="org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Reboot boolean:true"
+		;;
+	"consolekit")
+		suspend_dest='org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.HybridSleep boolean:true"'
+		shutdown_dest='org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop'
+		reboot_dest='org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart'
+		;;
+esac
+
 case $mode in
 	$reload)
 	action=$reload_command;;
 	$quit)
 	action=$quit_command;;
 	$suspend)
-	action="dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true" ;;
+	action="dbus-send --system --print-reply --dest=$suspend_dest" ;;
 	$reboot)
-	action="dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true" ;;
+	action="dbus-send --system --print-reply --dest=$reboot_dest" ;;
 	$shutdown)
-	action="dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true" ;;
+	action="dbus-send --system --print-reply --dest=$shutdown_dest" ;;
 	*)
 	exit;;
 esac
+
+echo $action
 
 if [ "$mode" != "$reload" ]
 then
