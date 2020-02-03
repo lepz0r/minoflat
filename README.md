@@ -19,26 +19,26 @@ Supported WMs
 
 |Program|Debian/Ubuntu|Arch|Fedora|Gentoo|Void|Explanation|
 |-|-|-|-|-|-|-|
-|Compton<sup>4</sup>|compton|- (replaced by Picom)|compton|compton|- (replaced by Picom)|Compositor for shadow & fading|
-|Picom<sup>4</sup>|-<sup>1</sup>|picom|picom|picom|picom|Compositor for shadow & fading|
-|Dunst|dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications)
-|hsetroot|hsetroot|hsetroot|-<sup>1</sup>|hsetroot|polybar|Set workspace background color|
-|Polybar|-<sup>1</sup>/PPA (https://launchpad.net/~kgilmer/+archive/ubuntu/speed-ricer, (polybar))<sup>5</sup>|polybar<sup>2</sup>|-<sup>1</sup>|polybar|polybar|Bar|
-|Rofi|rofi|rofi|rofi|rofi|rofi|Launcher|
-|xrdb|x11-xserver-utils|xorg-xrdb|xorg-x11-server-utils|xrdb|xrdb|For loading .Xresources|
-|xautolock|xautolock|xautolock|xautolock|xautolock|xautolock|For auto locking|
-|playerctl|playerctl|playerctl|playerctl|playerctl|playerctl|MPRIS (music) support|
-|i3lock-color|-<sup>1</sup>|i3lock-color|-<sup>1</sup>|i3lock-color<sup>3</sup>|i3lock-color|Lockscreen|
-|scrot|scrot|scrot|scrot|scrot|scrot|For taking screenshot|
-|ImageMagick|imagemagick|imagemagick|ImageMagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen|
-|plank|plank|plank|plank|plank<sup>3</sup>|plank|For tiling wm's dock|
-|oomox|deb (https://github.com/themix-project/oomox/releases)|oomox<sup>2</sup>|-<sup>1</sup>|-<sup>1</sup>|-<sup>1</sup>|Generate a GTK theme to match the color scheme|
+|Compton<sup>4</sup>|compton|- (replaced by Picom)|compton|compton|- (replaced by Picom)|Compositor for shadow & fading.|
+|Picom<sup>4</sup>|-<sup>1</sup>|picom|picom|picom|picom|Compositor for shadow & fading.|
+|Dunst|dunst|dunst|dunst|dunst|dunst|Notification daemon (for displaying notifications).|
+|hsetroot|hsetroot|hsetroot|-<sup>1</sup>|hsetroot|polybar|Set workspace background color.|
+|Polybar|-<sup>1</sup>/PPA (https://launchpad.net/~kgilmer/+archive/ubuntu/speed-ricer, (polybar))<sup>5</sup>|polybar<sup>2</sup>|-<sup>1</sup>|polybar|polybar|Bar.|
+|Rofi|rofi|rofi|rofi|rofi|rofi|Launcher.|
+|xrdb|x11-xserver-utils|xorg-xrdb|xorg-x11-server-utils|xrdb|xrdb|For loading .Xresources.|
+|xautolock|xautolock|xautolock|xautolock|xautolock|xautolock|For auto locking.|
+|playerctl|playerctl|playerctl|playerctl|playerctl|playerctl|MPRIS (music) support.|
+|i3lock-color|-<sup>1</sup>|i3lock-color|-<sup>1</sup>|i3lock-color<sup>3</sup>|i3lock-color|Lockscreen.|
+|scrot|scrot|scrot|scrot|scrot|scrot|For taking screenshot.|
+|ImageMagick|imagemagick|imagemagick|ImageMagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen.|
+|plank|plank|plank|plank|plank<sup>3</sup>|plank|For tiling wm's dock.|
+|oomox|deb (https://github.com/themix-project/oomox/releases)|oomox<sup>2</sup>|-<sup>1</sup>|-<sup>1</sup>|-<sup>1</sup>|Generate a GTK theme to match the color scheme.|
 
-<sup>1</sup> Must be built from the source\
-<sup>2</sup>Package available on AUR\
-<sup>3</sup> Search on https://gpo.zugaina.org/ to find overlay that have the package\
-<sup>4</sup> Install only one of both\
-<sup>5</sup> PPA only available for Ubuntu / deriveratives
+<sup>1</sup> Must be built from the source.\
+<sup>2</sup> Package available on AUR.\
+<sup>3</sup> Search on https://gpo.zugaina.org/ to find overlay that have the package.\
+<sup>4</sup> Install only one of both.\
+<sup>5</sup> PPA only available for Ubuntu / deriveratives.
 
 **Fonts**
 
@@ -56,41 +56,42 @@ Default Fonts
 |Noto Sans CJK|fonts-noto-cjk|noto-fonts-cjk|google-noto-sans-cjk-*-fonts|noto-cjk|noto-fonts-cjk|
 |Source Code Pro|-*/PPA (https://launchpad.net/~kgilmer/+archive/ubuntu/regolith-stable, fonts-source-code-pro-ttf)<sup>2</sup>|adobe-source-code-pro-fonts|adobe-source-code-pro-fonts|source-pro|font-adobe-source-code-pro|
 
-<sup>1</sup> Must be downloaded and copied to font directory/
-<sup>2</sup> PPA only available for Ubuntu / deriveratives
+<sup>1</sup> Must be downloaded and copied to font directory.\
+<sup>2</sup> PPA only available for Ubuntu / deriveratives.
 
 # Installation
-Copy `.minoflat` directory, `.Xresources` `.Xresources.d` and `minoflatrc.d` directory to your home directory (`~`) and some configurations in `.config` to `~/.config` or you can copy all files in this directory to your home directory
+Copy `.minoflat` directory, `.Xresources` `.Xresources.d` and `minoflatrc.d` directory to your home directory (`~`) and some configurations in `.config` to `~/.config` or you can copy all files in this directory to your home directory.
 
 
 # Configuration
-You can change the configuration in `~/.config/minoflat/config`
-* `accent-color` : Change accent color
-* `opacity` : Change opacity for some element (currently for rofi only)
-* `terminal` : Change terminal
-* `session-manager` : Change session manager to use, supported : `logind` and `consolekit`, systemd & elogind users should use `logind`, setting up this incorrectly may disable shutdown/reboot/suspend functionality
+You can change the configuration in `~/.config/minoflat/config`.
+* `accent-color` : Change accent color.
+* `opacity` : Change opacity for some element (currently for rofi only).
+* `terminal` : Change terminal.
+* `session-manager` : Change session manager to use, supported : `logind` and `consolekit`, anything else or unconfigured will use sudo for power management, systemd & elogind users should use `logind`, setting up this incorrectly may disable power management.
 
 # User scripts
-`~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script\
-`~/.minoflatrc` and every scripts in `~/.minoflatrc.d` will be executed after minoflat's init script
+`~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script.\
+`~/.minoflatrc` and every scripts in `~/.minoflatrc.d` will be executed after minoflat's init script.
 
 # Shortcuts
-This will work with all supported wms, media control can also be controlled with media keys, all WM use their default bindings\
+This will work with all supported wms, media control can also be controlled with media keys, all WM use their default bindings.\
 \
 Music :
-* Super+F5 : Previous track
-* Super+F7 : Next track
-* Super+F6 : Play/Pause track
+* Super+F5 : Previous track.
+* Super+F7 : Next track.
+* Super+F6 : Play/Pause track.
 
 Volume :
-* Super+F9 : Volume down
-* Super+F11 : Volume up
-* Super+F10 : Mute/Unmute
+* Super+F9 : Volume down.
+* Super+F11 : Volume up.
+* Super+F10 : Mute/Unmute.
 
-Super+shift+s (i3), Super+alt+s (bspwm) : Open System Menu
-Super+R (openbox) : Open DMenu
 
-\* Super keys is Windows key for PC keyboards or Command key for Mac keyboards
+Super+shift+S (i3), Super+alt+S (bspwm) : Open System Menu. \
+Super+R (openbox) : Open Launcher (rofi).
+
+\* Super keys is Windows key on PC keyboards or Command key on Mac keyboards.
 
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
@@ -111,5 +112,5 @@ Color Scheme: Relaxed
 
 # Credits
 Default color scheme: Relaxed by Michael Kühnel https://github.com/Relaxed-Theme/relaxed-terminal-themes \
-Picture edited with GIMP by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC\
+Picture edited with GIMP by Kristin Hardwick https://stocksnap.io/photo/ACSH8DMZYC \
 Grape color scheme by zdj https://github.com/zdj/themes

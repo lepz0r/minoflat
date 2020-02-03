@@ -100,12 +100,20 @@ case $session_manager in
 		reboot_dest="org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Reboot boolean:true"
 		;;
 	"consolekit")
-		suspend_dest='org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.HybridSleep boolean:true"'
+		suspend_dest='org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.HybridSleep boolean:true'
 		shutdown_dest='org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop'
 		reboot_dest='org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart'
 		;;
+	*)
+		suspend_dest='rofi -dmenu -password -columns 1 -lines 0 -p "Enter your password" -i -width 30 | sudo -S suspend'
+		shutdown_dest='rofi -dmenu -password -columns 1 -lines 0 -p "Enter your password" -i -width 30 | sudo -S poweroff'
+		reboot_dest='rofi -dmenu -password -columns 1 -lines 0 -p "Enter your password" -i -width 30 | sudo -S reboot'
+		sudo=1
+		;;
 esac
 
+if [ "$sudo" != 1 ]
+then
 case $mode in
 	$reload)
 	action=$reload_command;;
@@ -120,6 +128,22 @@ case $mode in
 	*)
 	exit;;
 esac
+else
+case $mode in
+	$reload)
+	action=$reload_command;;
+	$quit)
+	action=$quit_command;;
+	$suspend)
+	action=$suspend_dest ;;
+	$reboot)
+	action=$reboot_dest ;;
+	$shutdown)
+	action=$shutdown_dest ;;
+	*)
+	exit;;
+esac
+fi
 
 echo $action
 
@@ -144,8 +168,8 @@ then
 			nohup polybar -r floating > /dev/null &
 			;;
 	esac
-	$action
+	eval $action
 else
-	$action
+	eval $action
 fi
 fi
