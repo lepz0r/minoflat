@@ -56,7 +56,7 @@ done
 
 if [ -z "$mode" ]
 then
-mode=$(echo -e $content | rofi -dmenu -i -hide-scrollbar true -p "System menu ")
+mode=$(echo -e $content | rofi -dmenu -i -hide-scrollbar true -p "System menu " -me-select-entry '' -me-accept-entry "MousePrimary")
 
 fi
 
@@ -149,7 +149,7 @@ echo $action
 
 if [ "$mode" != "$reload" ]
 then
-confirm=$(echo -e $confirmation  | rofi -dmenu -i -hide-scrollbar true -p "$confirmation_message")
+confirm=$(echo -e $confirmation  | rofi -dmenu -i -hide-scrollbar true -p "$confirmation_message" -me-select-entry '' -me-accept-entry "MousePrimary")
 else
 	confirm="Yes"
 fi
