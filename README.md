@@ -31,7 +31,7 @@ Supported WMs
 |i3lock-color|-<sup>1</sup>|i3lock-color|-<sup>1</sup>|i3lock-color<sup>3</sup>|i3lock-color|Lockscreen.|
 |scrot|scrot|scrot|scrot|scrot|scrot|For taking screenshot.|
 |ImageMagick|imagemagick|imagemagick|ImageMagick|imagemagick|ImageMagick|For blurring the screenshot for the lockscreen.|
-|plank|plank|plank|plank|plank<sup>3</sup>|plank|For tiling wm's dock.|
+|plank|plank|plank|plank|plank<sup>3</sup>|plank|For stacking wm's dock.|
 |oomox|deb (https://github.com/themix-project/oomox/releases)|oomox<sup>2</sup>|-<sup>1</sup>|-<sup>1</sup>|-<sup>1</sup>|Generate a GTK theme to match the color scheme.|
 
 <sup>1</sup> Must be built from the source.\
@@ -67,7 +67,8 @@ Copy `.minoflat` directory, `.Xresources` `.Xresources.d` and `minoflatrc.d` dir
 You can change the configuration in `~/.config/minoflat/config`.
 * `accent-color` : Change accent color.
 * `opacity` : Change opacity for some element (currently for rofi only).
-* `terminal` : Change terminal.
+* `terminal-tiling` : Change tiling WM's terminal.
+* `terminal-stacking` : Change stacking WM's terminal.
 * `session-manager` : Change session manager to use, supported : `logind` and `consolekit`, anything else or unconfigured will use sudo for power management, systemd & elogind users should use `logind`, setting up this incorrectly may disable power management.
 
 # User scripts

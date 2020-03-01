@@ -1,4 +1,5 @@
 accent-color 13
-terminal urxvt
+terminal-tiling urxvt
+terminal-stacking urxvt
 opacity 255
 session-manager logind

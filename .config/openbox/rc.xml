@@ -339,7 +339,7 @@
   <!-- Run Terminal -->
   <keybind key="W-Return">
     <action name="Execute">
-	    <command>~/.minoflat/scripts/launch_terminal</command>
+	    <command>~/.minoflat/scripts/launch_terminal -s</command>
     </action>
   </keybind>
 
