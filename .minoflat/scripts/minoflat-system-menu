@@ -84,7 +84,7 @@ then
 		"bspwm")
 			quit_command="bspc quit";;
 		"i3")
-			quit_command="i3-msg reload";;
+			quit_command="i3-msg quit";;
 		"openbox")
 			quit_command="openbox --exit";;
 		*)
