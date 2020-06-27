@@ -28,7 +28,7 @@ set_from_resource $font sansserif
 # ----- Variables -----
 
 # Set a terminal
-set $terminal kitty
+set $terminal ~/.minoflat/scripts/launch_terminal
 
 # Set a launcher
 set $launcher rofi -terminal $term -sort -levenshtein-sort -matching normal -show run -modi run -location 1 rofi -show run -modi run -location 1 -separator-style none -bw 0 -lines 1 -columns 10 -width 100 -disable-history -hide-scrollbar -kb-row-select "Tab" -kb-row-tab ""

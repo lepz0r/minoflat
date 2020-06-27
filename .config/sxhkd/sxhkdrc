@@ -5,7 +5,7 @@
 
 # terminal emulator
 super + Return
-	kitty
+	~/.minoflat/scripts/launch_terminal
 
 
 # Media keys
