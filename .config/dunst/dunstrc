@@ -1,0 +1,9 @@
+[global]
+	geometry = "300x5-30+20"
+	transparency = 0
+	separator_height = 2
+	padding = 8
+	horizontal_padding = 8
+	frame_width = 2
+	separator_color = frame
+	padding = 8

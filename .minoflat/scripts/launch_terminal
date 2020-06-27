@@ -7,4 +7,4 @@ else
 terminal=$(sed "s/terminal-stacking//ig" ~/.config/minoflat/config | grep terminal-tiling | sed "s/terminal-tiling //ig")
 fi
 
-$terminal
+eval $terminal

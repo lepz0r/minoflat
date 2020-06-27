@@ -3,9 +3,9 @@ ACCENT_COLOR=$(grep accent-color ~/.config/minoflat/config | sed "s/accent-color
 minoflat_tmp=/tmp/minoflat_$USER
 ~/.minoflat/scripts/convert_xresources -f ~/.Xresources -A $ACCENT_COLOR -o $minoflat_tmp/.Xresources
 xrdb $minoflat_tmp/.Xresources
-bg=$(xrdb -query | grep background | sed s/\*\.background:\	//ig)
+bg=$(xrdb -query | grep "^\*\.background" | sed s/\*\.background:\	//ig)
 exec hsetroot -solid $bg &
 
-bspc config normal_border_color $(xrdb -query | grep background | sed s/\*\.background://ig) || true
-bspc config active_border_color $(xrdb -query | grep background | sed s/\*\.background://ig) || true
+bspc config normal_border_color $(xrdb -query | grep "^\*\.background" | sed s/\*\.background://ig) || true
+bspc config active_border_color $(xrdb -query | grep "^\*\.background" | sed s/\*\.background://ig) || true
 bspc config focused_border_color $(xrdb -query | grep accent | sed s/\*\.accent://ig) || true

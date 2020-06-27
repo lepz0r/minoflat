@@ -9,7 +9,7 @@ mkdir -m 700 $minoflat_tmp
 ACCENT_COLOR=$(grep accent-color ~/.config/minoflat/config | sed "s/accent-color //ig")
 ~/.minoflat/scripts/convert_xresources -f ~/.Xresources -A $ACCENT_COLOR -o $minoflat_tmp/.Xresources
 xrdb $minoflat_tmp/.Xresources
-bg=$(xrdb -query | grep background | sed s/\*\.background:\	//ig)
+bg=$(xrdb -query | grep "^\*\.background" | sed s/\*\.background:\	//ig)
 
 # Executing "hsetroot -solid $background" in i3 at startup doesn't set background color, so we execute here
 exec hsetroot -solid $bg &
