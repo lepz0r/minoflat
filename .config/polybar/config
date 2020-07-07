@@ -19,7 +19,7 @@ foreground = ${colors.foreground}
 
 modules-left = i3 bspwm playerctl
 modules-center = xwindow 
-modules-right = network cpu memory volume date time
+modules-right = network cpu memory volume date time power-button
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
