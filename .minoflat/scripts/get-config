@@ -1,0 +1,13 @@
+#!/bin/sh
+
+while [ -n "$1" ]; do
+	case "$1" in
+	-c)
+		grep "^$2" ~/.config/minoflat/config | sed "s/$2 //ig"
+		shift;;
+	-x)
+		xrdb -query | grep "^\\*\\.$2:" | sed s/\*\.$2:\	//ig
+		shift;;
+	esac
+shift
+done

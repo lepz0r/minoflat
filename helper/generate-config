@@ -1,0 +1,85 @@
+#!/bin/sh
+
+while [ -n "$1" ]; do
+	case "$1" in
+		-p)
+			program=$2
+			shift
+			;;
+	esac
+	shift
+done
+
+declare -i color
+case $program in
+	kitty)
+		color=0
+		config=~/.minoflat/configs/kitty.conf
+		echo "# Generated with minoflat's generate_config" > $config
+		echo "" >> $config
+		xrdb -query | grep -P "(fore|back)ground(?![0-9])" | sed "s/\*\.//ig" | sed "s/://ig"  >> $config
+		xrdb -query | grep monospace | sed "s/\*\.monospace:/font_family /ig" >> $config
+		while  [ "$color" -le 16 ]; do
+			xrdb -query | grep -P "color"$color"(?![0-9])" | sed "s/\*\.//ig" | sed "s/://ig"  >> $config
+				color=$(($color+1))
+		done ;;
+	alacritty)
+		color=0
+		config=~/.config/alacritty/alacritty.yml
+		font=$(~/.minoflat/scripts/get-config -x monospace)
+		echo "# Generated with minoflat's generate_config" > $config
+		echo "font:" >> $config
+		current_subkey1="family"
+		current_subkey2="style"
+
+		style_key=(normal bold italic bold_italic)
+		styles=(Regular Bold Italic "Bold Italic")
+		current_style=0
+		
+		while [ "$current_style" -le 3 ]; do
+			echo " ${style_key[$current_style]}:" >> $config
+			echo "  $current_subkey1: \"$font\"" >> $config
+			echo "  $current_subkey2: ${styles[$current_style]}" >> $config
+			current_style=$(($current_style+1))
+		done
+
+		echo " size: 10" >> $config
+
+		opacity=$(echo "scale=3; $(~/.minoflat/scripts/get-config -c opacity)/255"|bc)
+		echo "background_opacity: $opacity " >> $config
+
+		echo "colors:" >> $config
+		echo " primary:" >> $config
+
+		current_color=$(~/.minoflat/scripts/get-config -x foreground)
+		echo "  foreground: \"$current_color\"" >> $config
+
+		current_color=$(~/.minoflat/scripts/get-config -x background)
+		echo "  background: \"$current_color\"" >> $config
+
+		echo " cursor:" >> $config
+		echo "  text: \"$current_color\"" >> $config
+		current_color=$(~/.minoflat/scripts/get-config -x cursorColor)
+		echo "  cursor: \"$current_color\"" >> $config
+		
+		colors=(black red green yellow blue magenta cyan white)
+		echo " normal:" >> $config
+
+		while [ "$color" -le 7 ]; do
+			current_color=$(~/.minoflat/scripts/get-config -x color$color)
+			echo "  ${colors[$color]}: \"$current_color\"" >> $config
+			color=$(($color+1))
+		done
+
+		color=0
+
+		echo " bright:" >> $config
+
+		while [ "$color" -le 7 ]; do
+			current_color=$(~/.minoflat/scripts/get-config -x color$(($color+8)))
+			echo "  ${colors[$color]}: \"$current_color\"" >> $config
+			color=$(($color+1))
+		done
+
+	;;
+esac

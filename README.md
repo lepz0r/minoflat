@@ -75,6 +75,11 @@ You can change the configuration in `~/.config/minoflat/config`.
 `~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script.\
 `~/.minoflatrc` and every scripts in `~/.minoflatrc.d` will be executed after minoflat's init script.
 
+# Helper Scripts
+|Script|Description|
+|-|-|
+|generate-config|Generate a config for programs that don't support .Xresources"
+
 # Shortcuts
 This will work with all supported wms, media control can also be controlled with media keys, all WM use their default bindings.\
 \

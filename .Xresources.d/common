@@ -1,9 +1,10 @@
+*.color0: C0
 *.color1: C1
 *.color2: C2
 *.color3: C3
 *.color4: C4
 *.color5: C5
-*.color6: C5
+*.color6: C6
 *.color7: C7
 *.color8: C8
 *.color9: C9
@@ -14,8 +15,10 @@
 *.color14: C14
 *.color15: C15
 *.colorBD: CBD
+*.cursorColor: CURCOL
 *.foreground: FG
 *.background: BG
+*.barBackground: BARBG
 *.accent: ACC
 *.sansserif: xresources_sansserif
 *.monospace: xresources_monospace
