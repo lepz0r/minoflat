@@ -4,6 +4,8 @@
 * Power control
 * Auto reload .Xresources & restart bar if reloaded
 
+[See the wiki for more details](https://github.com/lepz0r/minoflat/wiki)
+
 # Requirements
 Supported WMs
 
@@ -62,42 +64,6 @@ Default Fonts
 # Installation
 Copy `.minoflat` directory, `.Xresources` `.Xresources.d` and `minoflatrc.d` directory to your home directory (`~`) and some configurations in `.config` to `~/.config` or you can copy all files in this directory to your home directory.
 
-
-# Configuration
-You can change the configuration in `~/.config/minoflat/config`.
-* `accent-color` : Change accent color.
-* `opacity` : Change opacity for some element (currently for rofi only).
-* `terminal-tiling` : Change tiling WM's terminal.
-* `terminal-stacking` : Change stacking WM's terminal.
-* `session-manager` : Change session manager to use, supported : `logind` and `consolekit`, anything else or unconfigured will use sudo for power management, systemd & elogind users should use `logind`, setting up this incorrectly may disable power management.
-
-# User scripts
-`~/.minoflatrc.before` and every scripts in `~./minoflatrc.before.d` will be executed before minoflat's init script.\
-`~/.minoflatrc` and every scripts in `~/.minoflatrc.d` will be executed after minoflat's init script.
-
-# Helper Scripts
-|Script|Description|
-|-|-|
-|generate-config|Generate a config for programs that don't support .Xresources"
-
-# Shortcuts
-This will work with all supported wms, media control can also be controlled with media keys, all WM use their default bindings.\
-\
-Music :
-* Super+F5 : Previous track.
-* Super+F7 : Next track.
-* Super+F6 : Play/Pause track.
-
-Volume :
-* Super+F9 : Volume down.
-* Super+F11 : Volume up.
-* Super+F10 : Mute/Unmute.
-
-
-Super+shift+S (i3), Super+alt+S (bspwm) : Open System Menu. \
-Super+R (openbox) : Open Launcher (rofi).
-
-\* Super keys is Windows key on PC keyboards or Command key on Mac keyboards.
 
 # Preview
 <img src="screenshots/2019-10-20-11.png">\
