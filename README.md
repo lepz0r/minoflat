@@ -19,7 +19,7 @@ Supported WMs
 
 **Programs**
 
-|Program|Debian/Ubuntu|Arch|Fedora|Gentoo|Void|Explanation|
+|Program|Debian/Ubuntu|Arch|Fedora|Gentoo|Void|Note|
 |-|-|-|-|-|-|-|
 |Compton<sup>4</sup>|compton|- (replaced by Picom)|compton|compton|- (replaced by Picom)|Compositor for shadow & fading.|
 |Picom<sup>4</sup>|-<sup>1</sup>|picom|picom|picom|picom|Compositor for shadow & fading.|
